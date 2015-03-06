@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
+    <changeSet author="xaos" id="r0.01.00-1">
+        <createTable tableName="role">
+            <column autoIncrement="true" name="id" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_2"/>
+            </column>
+            <column name="version" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.00-2">
+        <createTable tableName="role_group">
+            <column autoIncrement="true" name="id" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_B"/>
+            </column>
+            <column name="version" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.00-3">
+        <createTable tableName="role_group_roles">
+            <column name="role_id" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_group_id" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.00-4">
+        <createTable tableName="sys_mail_log">
+            <column autoIncrement="true" name="id" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_A"/>
+            </column>
+            <column name="version" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date" type="TIMESTAMP"/>
+            <column name="sender" type="VARCHAR(255)"/>
+            <column name="subject" type="VARCHAR(255)"/>
+            <column name="text" type="CLOB"/>
+            <column name="to_email" type="VARCHAR(255)"/>
+            <column name="view" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.00-5">
+        <createTable tableName="system">
+            <column autoIncrement="true" name="id" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_9"/>
+            </column>
+            <column name="version" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parameter" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.00-6">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="BIGINT(19)">
+                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_27"/>
+            </column>
+            <column name="version" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="full_name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_group_id" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.00-7">
+        <addPrimaryKey columnNames="role_group_id, role_id" constraintName="CONSTRAINT_26"
+                       tableName="role_group_roles"/>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.00-8">
+        <addUniqueConstraint columnNames="name" constraintName="uk_35hmlucbb2ndj6w0qxrocer9k" deferrable="false"
+                             disabled="false" initiallyDeferred="false" tableName="role_group"/>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.00-9">
+        <addUniqueConstraint columnNames="name" constraintName="uk_8sewwnpamngi6b1dwaa88askk" deferrable="false"
+                             disabled="false" initiallyDeferred="false" tableName="role"/>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.00-10">
+        <addUniqueConstraint columnNames="email" constraintName="uk_ob8kqyqqgmefl0aco34akdtpe" deferrable="false"
+                             disabled="false" initiallyDeferred="false" tableName="user"/>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.00-11">
+        <addUniqueConstraint columnNames="username" constraintName="uk_sb8bbouer5wak8vyiiy4pf2bx" deferrable="false"
+                             disabled="false" initiallyDeferred="false" tableName="user"/>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.00-12">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="role_group_roles"
+                                 constraintName="fk_epbndsvnpe8ebd7ebawd4apvs" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="role"/>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.00-13">
+        <addForeignKeyConstraint baseColumnNames="role_group_id" baseTableName="role_group_roles"
+                                 constraintName="fk_qriqmfaudiptqutqsuen0oalo" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="role_group"/>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.00-14">
+        <addForeignKeyConstraint baseColumnNames="role_group_id" baseTableName="user"
+                                 constraintName="fk_rhtrpvmnw8qrhp1yflc4yaw2s" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="id" referencedTableName="role_group"/>
+    </changeSet>
+</databaseChangeLog>

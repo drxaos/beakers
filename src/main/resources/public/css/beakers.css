@@ -1,0 +1,58 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+.layout__container {
+    max-width: 1200px;
+    padding: 0px 15px;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.form-control[readonly] {
+    cursor: default !important;
+    background-color: #fff;
+    opacity: 1 !important;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.has-error input, input.has-error {
+    background-color: rgba(246, 226, 226, 0.68);
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+    padding-top: 30px;
+    margin-left: -15px;
+}
+
+.footer .container {
+    color: gray;
+    font-size: small;
+}

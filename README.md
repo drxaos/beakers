@@ -17,6 +17,7 @@ To customize template you need to modify some config files:
 
 * /settings.gradle - project settings
 * /dump.sh - script for downloading production db to developer's machine
+* /src/main/resources/application.properties - application name and version
 * ...
 
 Running application

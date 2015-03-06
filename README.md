@@ -4,6 +4,7 @@ Beakers
 ===
 
 [Beakers][Beakers] is a template of web application based on [Spring][Spring] with the [Groovy][Groovy] programming language. It's already integrated with a number of libraries and offers a quick start for programming business logic.
+[Beakers]: http://drxaos.github.io/beakers/
 [Spring]: https://spring.io/
 [Groovy]: http://groovy-lang.org/
 

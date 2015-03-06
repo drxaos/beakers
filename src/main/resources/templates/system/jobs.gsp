@@ -1,4 +1,4 @@
-<%@ page import="beakers.utils.scheduler.JobUtils" %>
+<%@ page import="beakers.system.utils.scheduler.JobUtils" %>
 <html>
 <head>
     <meta name="layout" content="main"/>

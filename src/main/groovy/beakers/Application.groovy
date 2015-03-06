@@ -13,7 +13,7 @@ import java.lang.reflect.Field
 import java.nio.charset.Charset
 
 @Configuration
-@ComponentScan
+@ComponentScan()
 @EnableAutoConfiguration(exclude = [BasicErrorController, LiquibaseAutoConfiguration])
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 public class Application {

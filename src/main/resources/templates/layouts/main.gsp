@@ -68,9 +68,9 @@
                         <ul class="nav navbar-nav navbar-right">
                             <sec:ifLoggedIn>
                                 <li>
-                                    <a class="navbar-link ellipsis navbar__username"
+                                    <a class="navbar-link ellipsis navbar__usernameContainer"
                                        style="max-width: 35ex; color: #ffffff">
-                                        [<sec:loggedInUsername/>]
+                                        [<span class="navbar__username"><sec:loggedInUsername/></span>]
                                     </a>
                                 </li>
                                 <li>

@@ -4,7 +4,7 @@ import grails.persistence.Entity
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
-//@Entity
+@Entity
 @ToString
 @EqualsAndHashCode
 class GuestBook {

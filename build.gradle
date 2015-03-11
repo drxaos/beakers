@@ -54,12 +54,24 @@ repositories {
 dependencies {
     compile files("src/main/resources")
 
+    /* // Jetty
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    */
+
+    // Tomcat
     compile("org.springframework.boot:spring-boot-starter-web")
+
+    compile("org.springframework.boot:spring-boot-starter-actuator")
     compile("org.springframework.boot:spring-boot-starter-security")
     compile("org.springframework.boot:spring-boot-starter-aop")
     compile("org.springframework.boot:spring-boot-starter-jdbc")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile("org.springframework:spring-context-support")
+    compile 'org.springframework:spring-websocket'
+    compile 'org.springframework.session:spring-session:1.0.0.RELEASE'
 
     compile("org.codehaus.groovy:groovy-all:$groovyVersion")
 

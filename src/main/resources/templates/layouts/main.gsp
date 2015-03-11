@@ -101,8 +101,7 @@
 
             <footer class="footer">
                 <div class="container text-center">
-                    Beakers |
-                    <a href="http://drxaos.github.io/beakers/" target="_blank">Project</a> |
+                    <a href="http://drxaos.github.io/beakers/" target="_blank">Beakers</a> |
                     <a href="https://github.com/drxaos/beakers" target="_blank">Github</a>
                 </div>
             </footer>

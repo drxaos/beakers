@@ -5,7 +5,7 @@
     <changeSet author="xaos" id="r0.01.00-1">
         <createTable tableName="role">
             <column autoIncrement="true" name="id" type="BIGINT(19)">
-                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_2"/>
+                <constraints primaryKey="true"/>
             </column>
             <column name="version" type="BIGINT(19)">
                 <constraints nullable="false"/>
@@ -18,7 +18,7 @@
     <changeSet author="xaos" id="r0.01.00-2">
         <createTable tableName="role_group">
             <column autoIncrement="true" name="id" type="BIGINT(19)">
-                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_B"/>
+                <constraints primaryKey="true"/>
             </column>
             <column name="version" type="BIGINT(19)">
                 <constraints nullable="false"/>
@@ -41,7 +41,7 @@
     <changeSet author="xaos" id="r0.01.00-4">
         <createTable tableName="sys_mail_log">
             <column autoIncrement="true" name="id" type="BIGINT(19)">
-                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_A"/>
+                <constraints primaryKey="true"/>
             </column>
             <column name="version" type="BIGINT(19)">
                 <constraints nullable="false"/>
@@ -57,7 +57,7 @@
     <changeSet author="xaos" id="r0.01.00-5">
         <createTable tableName="system">
             <column autoIncrement="true" name="id" type="BIGINT(19)">
-                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_9"/>
+                <constraints primaryKey="true"/>
             </column>
             <column name="version" type="BIGINT(19)">
                 <constraints nullable="false"/>
@@ -71,7 +71,7 @@
     <changeSet author="xaos" id="r0.01.00-6">
         <createTable tableName="user">
             <column autoIncrement="true" name="id" type="BIGINT(19)">
-                <constraints primaryKey="true" primaryKeyName="CONSTRAINT_27"/>
+                <constraints primaryKey="true"/>
             </column>
             <column name="version" type="BIGINT(19)">
                 <constraints nullable="false"/>
@@ -97,7 +97,7 @@
         </createTable>
     </changeSet>
     <changeSet author="xaos" id="r0.01.00-7">
-        <addPrimaryKey columnNames="role_group_id, role_id" constraintName="CONSTRAINT_26"
+        <addPrimaryKey columnNames="role_group_id, role_id"
                        tableName="role_group_roles"/>
     </changeSet>
     <changeSet author="xaos" id="r0.01.00-8">

@@ -2,20 +2,27 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.3.xsd">
-    <changeSet author="xaos" id="r0.01.01-1">
-        <createTable tableName="guest_book">
-            <column autoIncrement="true" name="id" type="BIGINT(19)">
-                <constraints primaryKey="true"/>
+    <changeSet author="xaos" id="r0.01.02-1">
+        <createTable tableName="session">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
             </column>
             <column name="version" type="BIGINT(19)">
                 <constraints nullable="false"/>
             </column>
-            <column name="guest_name" type="VARCHAR(50)">
+            <column name="creation_time" type="BIGINT(19)">
                 <constraints nullable="false"/>
             </column>
-            <column name="message" type="VARCHAR(1024)">
+            <column name="data" type="BLOB"/>
+            <column name="last_accessed_time" type="BIGINT(19)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="max_inactive_interval_in_seconds" type="INT(10)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    </changeSet>
+    <changeSet author="xaos" id="r0.01.02-2">
+        <addPrimaryKey columnNames="id" tableName="session"/>
     </changeSet>
 </databaseChangeLog>

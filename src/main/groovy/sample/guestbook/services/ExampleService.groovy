@@ -1,4 +1,4 @@
-package beakers.application.services
+package sample.guestbook.services
 
 import groovy.util.logging.Log4j
 import org.springframework.stereotype.Service

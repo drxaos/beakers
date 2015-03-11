@@ -1,6 +1,5 @@
 package beakers.system.service.auth
 
-import beakers.application.mail.Mailer
 import beakers.system.aop.OnUpdateDatabase
 import beakers.system.domain.auth.Role
 import beakers.system.domain.auth.RoleGroup
@@ -8,6 +7,8 @@ import beakers.system.domain.auth.User
 import beakers.system.errors.domain.UniqueConstraintException
 import beakers.system.errors.domain.auth.EmailAlreadyExists
 import beakers.system.errors.domain.auth.UsernameAlreadyExists
+import beakers.system.events.EventBus
+import beakers.system.events.auth.SignUpEvent
 import groovy.util.logging.Log4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.core.context.SecurityContextHolder
@@ -19,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional
 public class UserService {
 
     @Autowired
-    Mailer mailer
+    EventBus eventBus
 
     @Transactional
     @OnUpdateDatabase
@@ -65,9 +66,9 @@ public class UserService {
 
     @Transactional
     public User signUpUser(String username, String password, String email, String fullName) {
-        def player = createUser(username, password, email, fullName)
-        mailer.onSignUp(email, username, password, fullName)
-        return player
+        def user = createUser(username, password, email, fullName)
+        eventBus.publish(new SignUpEvent(user: user))
+        return user
     }
 
     @Transactional

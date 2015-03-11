@@ -27,10 +27,7 @@ apply plugin: 'groovy'
 apply plugin: 'spring-boot'
 apply plugin: 'idea'
 apply from: "osSpecificDownloads.gradle"
-
-springBoot {
-    mainClass = "beakers.Application"
-}
+apply from: "application.gradle"
 
 idea {
     module {

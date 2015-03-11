@@ -12,4 +12,10 @@ public class MailMessageContent {
 
     Map<String, List<String>> headers
     byte[] messageData
+
+
+    @Override
+    public String toString() {
+        return "From: '" + from + '\'' + ", To: '" + to + '\'' + ", Subject: '" + subject + '\'';
+    }
 }

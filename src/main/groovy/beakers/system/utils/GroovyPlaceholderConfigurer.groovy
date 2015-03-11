@@ -1,5 +1,6 @@
 package beakers.system.utils
 
+import beakers.Beakers
 import groovy.util.logging.Log4j
 import org.codehaus.groovy.grails.commons.DefaultGrailsApplication
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer
@@ -38,6 +39,7 @@ public class GroovyPlaceholderConfigurer extends PropertyPlaceholderConfigurer {
         props.putAll(configObject.toProperties())
         configObject.merge(grailsApplication.getConfig())
         grailsApplication.config = configObject
+        grailsApplication.config.args = Beakers.params
     }
 
 

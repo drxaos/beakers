@@ -1,6 +1,6 @@
 package beakers.system.config
 
-import beakers.Application
+import beakers.Beakers
 import grails.util.Holders
 import org.codehaus.groovy.grails.commons.GrailsApplication
 import org.codehaus.groovy.grails.core.io.support.GrailsFactoriesLoader
@@ -28,7 +28,7 @@ class GrailsHoldersConfiguration implements ApplicationContextAware, GrailsAppli
     @Override
     void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         GrailsHoldersConfiguration.applicationContext = applicationContext
-        Application.applicationContext = applicationContext
+        Beakers.applicationContext = applicationContext
         Holders.addApplicationDiscoveryStrategy(new GrailsApplicationDiscoveryStrategy() {
             @Override
             GrailsApplication findGrailsApplication() {

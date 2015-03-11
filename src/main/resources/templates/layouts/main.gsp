@@ -3,26 +3,26 @@
 <head>
     <title><g:layoutTitle default="Beakers"/></title>
 
-    <script src="/js/jquery.min.js"></script>
-    <link href="/css/font-awesome.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <link href="/static/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css"/>
+    <script src="/static/js/bootstrap.min.js"></script>
 
     <link href='favicon.ico' rel='icon'/>
-    <link rel="icon" type="image/png" href="/favicon.png"/>
+    <link rel="icon" type="image/png" href="/static/favicon.png"/>
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <link rel="stylesheet" href="/css/beakers.css"/>
-    <script type="text/javascript" src="/js/bus.js"></script>
-    <script type="text/javascript" src="/js/number-polyfill.js"></script>
-    <script type="text/javascript" src="/js/jquery.form.min.js"></script>
+    <link rel="stylesheet" href="/static/css/beakers.css"/>
+    <script type="text/javascript" src="/static/js/bus.js"></script>
+    <script type="text/javascript" src="/static/js/number-polyfill.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.form.min.js"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="/js/html5shiv.min.js"></script>
+      <script src="/static/js/html5shiv.min.js"></script>
     <![endif]-->
 
     <g:layoutHead/>

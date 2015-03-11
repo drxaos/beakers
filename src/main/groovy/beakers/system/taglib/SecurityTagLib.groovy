@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.expression.Expression
 import org.springframework.security.access.expression.ExpressionUtils
 import org.springframework.security.access.expression.SecurityExpressionHandler
+import org.springframework.security.authentication.AnonymousAuthenticationToken
+import org.springframework.security.core.authority.AuthorityUtils
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.web.FilterInvocation
 import org.springframework.stereotype.Component
@@ -52,6 +54,9 @@ class SecurityTagLib {
 
     protected boolean evaluate(String expr) {
         def auth = SecurityContextHolder.getContext().getAuthentication()
+        if (auth == null) {
+            auth = new AnonymousAuthenticationToken("key", "anonymousUser", AuthorityUtils.createAuthorityList("ROLE_ANONYMOUS"))
+        }
 
         if (expr) {
             Expression expression = findOrCreateExpression(expr)

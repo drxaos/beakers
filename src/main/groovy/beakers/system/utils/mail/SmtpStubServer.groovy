@@ -1,5 +1,7 @@
 package beakers.system.utils.mail
 
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.subethamail.smtp.TooMuchDataException
 import org.subethamail.wiser.Wiser
 
@@ -17,11 +19,15 @@ class SmtpStubServer extends Wiser {
 
     SmtpStubServer(int port) {
         wiser = new Wiser(port) {
+            private final static Logger log = LoggerFactory.getLogger(SmtpStubServer.class);
+
             @Override
             void deliver(String from, String recipient, InputStream data) throws TooMuchDataException, IOException {
                 super.deliver(from, recipient, data)
                 messages.each {
-                    mailMessages << MailUtil.decodeMessage(it)
+                    def decoded = MailUtil.decodeMessage(it)
+                    mailMessages << decoded
+                    log.info("Mail delivered: ${decoded}")
                 }
             }
         }

@@ -1,5 +1,7 @@
-package beakers.application.mail
+package sample.guestbook.mail
 
+import beakers.system.events.EventListener
+import beakers.system.events.auth.SignUpEvent
 import beakers.system.mail.MailService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -18,11 +20,12 @@ class Mailer {
         mailService.send(from, to, view, model)
     }
 
-    void onSignUp(String email, String username, String password, String fullName) {
-        mailService.send(email, "/mail/login/onSignUp", [
-                username: username,
-                password: password,
-                fullName: fullName,
+    @EventListener
+    void onSignUp(SignUpEvent e) {
+        mailService.send(e.user.email, "/mail/login/onSignUp", [
+                username: e.user.username,
+                password: e.user.password,
+                fullName: e.user.fullName,
         ])
 
     }

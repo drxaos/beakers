@@ -39,9 +39,9 @@ public class LoginController extends AbstractMvcController {
     @ResponseBody
     public ActionAnswer doSignup(SignupParams cmd) {
         action(cmd) {
-            def player = userService.signUpPlayer(cmd.username, cmd.password, cmd.email, cmd.fullName)
+            def player = userService.signUpUser(cmd.username, cmd.password, cmd.email, cmd.fullName)
             SignInUtils.signin(player.username)
-            return answer("registered", [redirect: "/help"])
+            return answer("registered", [redirect: "/"])
         }
         on(UsernameAlreadyExists) { UsernameAlreadyExists e ->
             return error(e) << field("username", "already-exists")

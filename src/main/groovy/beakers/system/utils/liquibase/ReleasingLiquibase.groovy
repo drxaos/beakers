@@ -1,6 +1,6 @@
 package beakers.system.utils.liquibase
 
-import beakers.Application
+import grails.util.Holders
 import groovy.io.FileType
 import liquibase.CatalogAndSchema
 import liquibase.Contexts
@@ -62,8 +62,8 @@ class ReleasingLiquibase extends SpringLiquibase implements InitializingBean {
         def updateSql = new File(path.absolutePath + "/src/main/resources/liquibase/sql/${releaseName}_update.sql")
         def rollbackSql = new File(path.absolutePath + "/src/main/resources/liquibase/sql/${releaseName}_rollback.sql")
 
-        boolean makeSql = Application.params.contains("sql")
-        boolean makeDiff = Application.params.contains("diff")
+        boolean makeSql = Holders.config.args.contains("sql")
+        boolean makeDiff = Holders.config.args.contains("diff")
 
         if (makeDiff) {
             changelog.delete()

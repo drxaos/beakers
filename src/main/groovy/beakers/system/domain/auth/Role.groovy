@@ -5,8 +5,8 @@ import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
 @Entity
-@ToString
-@EqualsAndHashCode
+@ToString(excludes = ["groups"])
+@EqualsAndHashCode(excludes = ["groups"])
 class Role {
 
     String name

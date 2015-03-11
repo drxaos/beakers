@@ -8,7 +8,7 @@
 <body>
 
 <div class="page-header text-center">
-    <h1>It works!</h1>
+    <h1>Guest book</h1>
 </div>
 
 <div class="row">
@@ -17,7 +17,7 @@
     <div class="col-md-10">
 
         <div class="well">
-            <p>Hello.</p>
+            <p>Hello guest!</p>
         </div>
 
     </div>

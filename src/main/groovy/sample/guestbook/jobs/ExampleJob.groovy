@@ -1,7 +1,7 @@
-package beakers.application.jobs
+package sample.guestbook.jobs
 
 import beakers.system.job.AbstractJob
-import beakers.application.services.ExampleService
+import sample.guestbook.services.ExampleService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service

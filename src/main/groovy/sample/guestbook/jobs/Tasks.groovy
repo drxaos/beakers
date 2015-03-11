@@ -1,4 +1,4 @@
-package beakers.application.jobs
+package sample.guestbook.jobs
 
 import groovy.util.logging.Log4j
 import org.springframework.context.annotation.Configuration

@@ -1,6 +1,6 @@
 package beakers.system.config
 
-import beakers.Application
+import grails.util.Holders
 import groovy.util.logging.Log4j
 import liquibase.integration.spring.SpringLiquibase
 import org.springframework.beans.factory.annotation.Value
@@ -49,8 +49,8 @@ public class DataSourceConfiguration {
         SpringLiquibase liquibase = new SpringLiquibase()
         liquibase.setChangeLog(changelog)
         liquibase.setDataSource(dataSource)
-        liquibase.setDropFirst(Application.params.contains("dropAll"))
-        liquibase.setShouldRun(Application.params.contains("migrate") || test)
+        liquibase.setDropFirst(Holders.config.args.contains("dropAll"))
+        liquibase.setShouldRun(Holders.config.args.contains("migrate") || test)
         return liquibase
     }
 

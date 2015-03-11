@@ -1,4 +1,4 @@
-package beakers.application.filers
+package sample.guestbook.filers
 
 import beakers.system.interceptors.AbstractMvcFilter
 import groovy.util.logging.Log4j

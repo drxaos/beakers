@@ -1,4 +1,4 @@
-package beakers.application.domain
+package sample.guestbook.domain
 
 import grails.persistence.Entity
 import groovy.transform.EqualsAndHashCode

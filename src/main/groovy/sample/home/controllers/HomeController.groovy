@@ -1,4 +1,4 @@
-package beakers.application.controllers
+package sample.home.controllers
 
 import beakers.system.controller.AbstractMvcController
 import org.springframework.security.access.prepost.PreAuthorize
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod
 @PreAuthorize("isAnonymous() or isAuthenticated()")
 public class HomeController extends AbstractMvcController {
 
-    @RequestMapping(value = ["/home", "/"], method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String home() {
-        return "home/home"
+        return "index/index"
     }
 
 }

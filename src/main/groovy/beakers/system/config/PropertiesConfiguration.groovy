@@ -1,6 +1,5 @@
 package beakers.system.config
 
-import beakers.application.config.application
 import beakers.system.utils.GroovyPlaceholderConfigurer
 import org.codehaus.groovy.grails.commons.DefaultGrailsApplication
 import org.springframework.beans.BeansException
@@ -30,8 +29,10 @@ class PropertiesConfiguration implements ApplicationContextAware, EnvironmentAwa
                 environment: environment,
                 locations: [
                         ApplicationConfig.class,
-                        application.class,
+                        applicationContext.getResource("classpath:application.class"),
                         applicationContext.getResource("classpath:application.groovy"),
+                        applicationContext.getResource("classpath:config/application.class"),
+                        applicationContext.getResource("classpath:config/application.groovy"),
                         applicationContext.getResource("file://${homeDirectory}/.config/${appName}.groovy"),
                         applicationContext.getResource("file://${homeDirectory}/.${appName}/config.groovy"),
                         applicationContext.getResource("file://${homeDirectory}/${appName}/config.groovy"),

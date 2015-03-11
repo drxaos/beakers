@@ -19,7 +19,7 @@ import spock.lang.Specification
 import javax.sql.DataSource
 
 @RunWith(SpringRunner.class)
-@SpringApplicationConfiguration(classes = Beakers.class)
+@SpringApplicationConfiguration(classes = BeakersCore.class)
 @WebAppConfiguration
 @IntegrationTest
 @ActiveProfiles("test")

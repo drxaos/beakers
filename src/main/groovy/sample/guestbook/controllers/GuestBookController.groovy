@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod
 
 @Controller
 @PreAuthorize("isAnonymous() or isAuthenticated()")
-public class GuestbookController extends AbstractMvcController {
+public class GuestBookController extends AbstractMvcController {
 
     @RequestMapping(value = "/guestbook", method = RequestMethod.GET)
     public String guestbook() {

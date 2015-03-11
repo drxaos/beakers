@@ -1,11 +1,11 @@
-package sample.guestbook
+package sample.home
 
-import beakers.Beakers
+import beakers.BeakersCore
 import org.springframework.context.annotation.ComponentScan
 
 @ComponentScan
-public class GuestBook {
+public class HomeModule {
     public static void main(String[] args) throws Exception {
-        Beakers.launch(GuestBook, args)
+        BeakersCore.launch(HomeModule, args)
     }
 }

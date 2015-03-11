@@ -1,11 +1,11 @@
-package sample.home
+package beakers.admin
 
-import beakers.Beakers
+import beakers.BeakersCore
 import org.springframework.context.annotation.ComponentScan
 
 @ComponentScan
-public class Home {
+public class AdminModule {
     public static void main(String[] args) throws Exception {
-        Beakers.launch(Home, args)
+        BeakersCore.launch(AdminModule, args)
     }
 }

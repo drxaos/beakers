@@ -1,6 +1,6 @@
 package beakers.system.job
 
-import beakers.Beakers
+import beakers.BeakersCore
 import beakers.system.utils.scheduler.JobUtils
 import groovy.util.logging.Log4j
 import org.joda.time.DateTime
@@ -84,7 +84,7 @@ abstract public class AbstractJob {
                 if (method.isAnnotationPresent(Scheduled.class)) {
                     Scheduled annotInstance = method.getAnnotation(Scheduled.class);
                     if (annotInstance.cron()) {
-                        expressions.add(Beakers.resolveValue(annotInstance.cron()));
+                        expressions.add(BeakersCore.resolveValue(annotInstance.cron()));
                     }
                 }
             }

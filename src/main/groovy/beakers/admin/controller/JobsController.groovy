@@ -1,8 +1,9 @@
-package beakers.system.controller.auth
+package beakers.admin.controller
 
 import beakers.system.controller.AbstractMvcController
-import beakers.system.service.auth.UserService
+import beakers.system.job.JobManager
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.access.annotation.Secured
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
@@ -11,16 +12,15 @@ import org.springframework.web.servlet.ModelAndView
 
 @Controller
 @PreAuthorize("hasRole('ROLE_ADMIN')")
-public class UsersController extends AbstractMvcController {
+class JobsController extends AbstractMvcController {
 
     @Autowired
-    UserService userService
+    JobManager jobManager
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public ModelAndView listUsers() {
-        def user = userService.currentLoggedInUser
-        def list = userService.listUsers()
-        return new ModelAndView("system/users", [list: list, current: user])
+    @Secured(["ROLE_ADMIN"])
+    @RequestMapping(value = "/jobs/list", method = RequestMethod.GET)
+    public ModelAndView listJobs() {
+        return new ModelAndView("system/jobs", [jobs: jobManager.jobs, tasks: jobManager.tasks])
     }
 
 }

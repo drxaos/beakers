@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional
 
 @Log4j
 @Service
-class ExampleService {
+class GuestBookService {
 
     @Transactional
     def executeJob() {

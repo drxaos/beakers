@@ -1,4 +1,4 @@
-package sample.guestbook.tags
+package sample.generic.tags
 
 import grails.gsp.TagLib
 import org.springframework.stereotype.Component

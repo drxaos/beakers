@@ -17,7 +17,7 @@ import java.nio.charset.Charset
 @ComponentScan
 @EnableAutoConfiguration(exclude = [BasicErrorController, LiquibaseAutoConfiguration, ErrorMvcAutoConfiguration])
 @EnableAspectJAutoProxy(proxyTargetClass = true)
-public class Beakers {
+public class BeakersCore {
 
     static applicationContext
     private static params = []
@@ -36,7 +36,7 @@ public class Beakers {
      * @param args First argument is active profile and other are params used by configuration
      */
     public static void launch(List<Class> appClasses, String[] args) throws Exception {
-        SpringApplication app = new SpringApplication((appClasses + [Beakers]) as Object[]);
+        SpringApplication app = new SpringApplication((appClasses + [BeakersCore]) as Object[]);
         if (args.length >= 1) {
             app.setAdditionalProfiles(args[0])
             for (int i = 1; i < args.length; i++) {
@@ -51,7 +51,7 @@ public class Beakers {
     }
 
     public static void main(String[] args) throws Exception {
-        launch(Beakers, args)
+        launch(BeakersCore, args)
     }
 
     public static List getParams() {

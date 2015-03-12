@@ -10,6 +10,7 @@ Beakers
 [Groovy]: http://groovy-lang.org/
 
 * Project page: http://drxaos.github.io/beakers/
+* Demo application: http://beakers.v-pp.ru/
 * Spring: https://spring.io/
 * Groovy: http://groovy-lang.org/
 

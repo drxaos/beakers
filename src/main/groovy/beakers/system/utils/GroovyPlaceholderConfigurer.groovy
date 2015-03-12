@@ -1,6 +1,6 @@
 package beakers.system.utils
 
-import beakers.BeakersCore
+import beakers.system.BeakersCore
 import groovy.util.logging.Log4j
 import org.codehaus.groovy.grails.commons.DefaultGrailsApplication
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer

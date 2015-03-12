@@ -1,7 +1,7 @@
-package beakers.system.job
+package beakers.jobs.job
 
-import beakers.BeakersCore
-import beakers.system.utils.scheduler.JobUtils
+import beakers.system.BeakersCore
+import beakers.jobs.utils.JobUtils
 import groovy.util.logging.Log4j
 import org.joda.time.DateTime
 import org.springframework.beans.factory.annotation.Autowired

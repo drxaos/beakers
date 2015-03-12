@@ -1,6 +1,6 @@
 package sample.guestbook.jobs
 
-import beakers.system.job.AbstractJob
+import beakers.jobs.job.AbstractJob
 import sample.guestbook.services.GuestBookService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.scheduling.annotation.Scheduled

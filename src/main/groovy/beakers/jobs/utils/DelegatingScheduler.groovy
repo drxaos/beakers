@@ -1,6 +1,6 @@
-package beakers.system.utils.scheduler
+package beakers.jobs.utils
 
-import beakers.system.job.JobManager
+import beakers.jobs.job.JobManager
 import org.springframework.scheduling.TaskScheduler
 import org.springframework.scheduling.Trigger
 

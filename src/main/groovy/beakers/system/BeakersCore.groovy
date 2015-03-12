@@ -1,4 +1,4 @@
-package beakers
+package beakers.system
 
 import beakers.system.config.ApplicationConfig
 import beakers.system.config.GroovyConfigResource

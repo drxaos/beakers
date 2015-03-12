@@ -1,7 +1,7 @@
-package beakers.system.config
+package beakers.jobs.config
 
-import beakers.system.job.JobManager
-import beakers.system.utils.scheduler.DelegatingScheduler
+import beakers.jobs.job.JobManager
+import beakers.jobs.utils.DelegatingScheduler
 import grails.util.Holders
 import groovy.util.logging.Log4j
 import org.springframework.beans.factory.annotation.Autowired

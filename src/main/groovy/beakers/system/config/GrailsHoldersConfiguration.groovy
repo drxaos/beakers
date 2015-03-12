@@ -1,6 +1,6 @@
 package beakers.system.config
 
-import beakers.BeakersCore
+import beakers.system.BeakersCore
 import grails.util.Holders
 import org.codehaus.groovy.grails.commons.GrailsApplication
 import org.codehaus.groovy.grails.core.io.support.GrailsFactoriesLoader

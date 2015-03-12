@@ -1,7 +1,7 @@
 package beakers.admin.controller
 
 import beakers.system.controller.AbstractMvcController
-import beakers.system.job.JobManager
+import beakers.jobs.job.JobManager
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.access.annotation.Secured
 import org.springframework.security.access.prepost.PreAuthorize

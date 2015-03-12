@@ -1,8 +1,10 @@
 package beakers.admin
 
-import beakers.BeakersCore
+import beakers.system.BeakersCore
 import org.springframework.context.annotation.ComponentScan
+import org.springframework.context.annotation.Configuration
 
+@Configuration
 @ComponentScan
 public class AdminCoreModule {
 

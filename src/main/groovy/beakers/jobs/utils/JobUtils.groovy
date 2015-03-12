@@ -1,4 +1,4 @@
-package beakers.system.utils.scheduler
+package beakers.jobs.utils
 
 import org.joda.time.DateTime
 import org.springframework.scheduling.support.CronSequenceGenerator

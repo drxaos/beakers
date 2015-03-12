@@ -1,7 +1,8 @@
 package sample
 
-import beakers.BeakersCore
+import beakers.system.BeakersCore
 import beakers.admin.AdminCoreModule
+import beakers.jobs.JobsCoreModule
 import beakers.mail.MailCoreModule
 import beakers.system.config.GroovyConfigResource
 import org.springframework.context.annotation.Bean
@@ -22,8 +23,9 @@ public class SamplesRunner {
         BeakersCore.launch([
                 // core
                 BeakersCore,
-                AdminCoreModule,
                 MailCoreModule,
+                JobsCoreModule,
+                AdminCoreModule,
 
                 // modules
                 HomeSamplesModule,

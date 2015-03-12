@@ -1,5 +1,6 @@
 package beakers
 
+import beakers.system.BeakersCore
 import geb.Browser
 import geb.Configuration
 import geb.buildadapter.BuildAdapterFactory

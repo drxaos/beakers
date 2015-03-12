@@ -9,7 +9,7 @@ Beakers
 [Spring]: https://spring.io/
 [Groovy]: http://groovy-lang.org/
 
-# Getting Started
+## Getting Started
 
 You need a Java Development Kit (JDK) installed, but it is not necessary to install Groovy because it's downloaded by Gradle.
 
@@ -21,42 +21,42 @@ To customize template you need to modify some config files:
 * /src/main/resources/application.groovy - application configuration
 * ...
 
-# Application layout
+## Application layout
 
-## Configurations
-## Groovy configs
-## Services
-## Controllers
-## Domains
-## GSP
-## TagLibs
-## Events
-## Utils
-## AOP
-## Bootstrap
-## I18n
-## Static resources
-## ...
+### Configurations
+### Groovy configs
+### Services
+### Controllers
+### Domains
+### GSP
+### TagLibs
+### Events
+### Utils
+### AOP
+### Bootstrap
+### I18n
+### Static resources
+### ...
 
-# Core modules
+## Core modules
 
-## Core
-## Mail
-## Jobs
-## Jms?
-## Admin
+### Core
+### Mail
+### Jobs
+### Jms?
+### Admin
 
-# Running application
+## Running application
 
-## Samples
-## Customize
+### Samples
+### Customize
 
-# Database migrations
+## Database migrations
 
 Liquibase
 
-# Testing
+## Testing
 
-## Integration
-## Web
+### Integration
+### Web
 

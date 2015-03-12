@@ -2,7 +2,7 @@ package sample.guestbook.mail
 
 import beakers.system.events.EventListener
 import beakers.system.events.auth.SignUpEvent
-import beakers.system.mail.MailService
+import beakers.mail.service.MailService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -22,7 +22,7 @@ class Mailer {
 
     @EventListener
     void onSignUp(SignUpEvent e) {
-        mailService.send(e.user.email, "/mail/login/onSignUp", [
+        mailService.send(e.user.email, "/mail/auth/onSignUp", [
                 username: e.user.username,
                 password: e.user.password,
                 fullName: e.user.fullName,

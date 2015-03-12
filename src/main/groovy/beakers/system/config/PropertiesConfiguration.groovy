@@ -23,12 +23,12 @@ class PropertiesConfiguration implements ApplicationContextAware, EnvironmentAwa
     public GroovyPlaceholderConfigurer placeHolderConfigurer() {
         def homeDirectory = applicationContext.getEnvironment().getProperty("user.home")
         def appName = applicationContext.getEnvironment().getProperty("application.name")
+        def holders = applicationContext.getBeansOfType(GroovyConfigResource).collect { String name, GroovyConfigResource bean -> bean.resource }
 
         return new GroovyPlaceholderConfigurer(
                 grailsApplication: applicationContext.getBean(DefaultGrailsApplication),
                 environment: environment,
-                locations: [
-                        ApplicationConfig.class,
+                locations: holders + [
                         applicationContext.getResource("classpath:application.class"),
                         applicationContext.getResource("classpath:application.groovy"),
                         applicationContext.getResource("classpath:config/application.class"),

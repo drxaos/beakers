@@ -27,12 +27,12 @@ public class LoginController extends AbstractMvcController {
     public ModelAndView login(
             @RequestParam(value = "error", required = false, defaultValue = "0") String error
     ) {
-        return new ModelAndView("login/login", [error: error])
+        return new ModelAndView("auth/login", [error: error])
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.GET)
     public ModelAndView signup() {
-        return new ModelAndView("login/signup", [:])
+        return new ModelAndView("auth/signup", [:])
     }
 
     @RequestMapping(value = "/signup/process", method = RequestMethod.POST)

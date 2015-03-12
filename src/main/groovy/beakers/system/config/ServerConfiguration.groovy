@@ -58,12 +58,12 @@ public class ServerConfiguration implements EmbeddedServletContainerCustomizer {
         container.setPort(port)
         container.setSessionTimeout(sessionTimeout, TimeUnit.SECONDS)
         container.setErrorPages(new HashSet<ErrorPage>())
-        container.addErrorPages(new ErrorPage(HttpStatus.BAD_REQUEST, "/failRedirect?code=400"))
-        container.addErrorPages(new ErrorPage(HttpStatus.FORBIDDEN, "/failRedirect?code=403"))
-        container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/failRedirect?code=404"))
-        container.addErrorPages(new ErrorPage(HttpStatus.METHOD_NOT_ALLOWED, "/failRedirect?code=405"))
-        container.addErrorPages(new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/failRedirect?code=500"))
-        container.addErrorPages(new ErrorPage("/failRedirect"))
+        container.addErrorPages(new ErrorPage(HttpStatus.BAD_REQUEST, "/errorRedirect?code=400"))
+        container.addErrorPages(new ErrorPage(HttpStatus.FORBIDDEN, "/errorRedirect?code=403"))
+        container.addErrorPages(new ErrorPage(HttpStatus.NOT_FOUND, "/errorRedirect?code=404"))
+        container.addErrorPages(new ErrorPage(HttpStatus.METHOD_NOT_ALLOWED, "/errorRedirect?code=405"))
+        container.addErrorPages(new ErrorPage(HttpStatus.INTERNAL_SERVER_ERROR, "/errorRedirect?code=500"))
+        container.addErrorPages(new ErrorPage("/errorRedirect"))
         container.mimeMappings.add("ico", "image/x-icon")
 
     }

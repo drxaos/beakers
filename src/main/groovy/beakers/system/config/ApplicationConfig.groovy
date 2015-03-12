@@ -10,7 +10,6 @@ server.port = 8080
 app.host = "beakers.example.com"
 app.url = "http://${app.host}/"
 app.title = "Beakers"
-mail.from = "admin@${app.host}"
 
 environments {
     dev {
@@ -23,18 +22,15 @@ environments {
         datasource.url = "jdbc:mysql://localhost/beakers"
         datasource.driver = "com.mysql.jdbc.Driver"
 
-        mail.port = 2525
-
 //        scheduler.enable = true
 //        cron.battle = "0 0/5 * * * *"
+
     }
     test {
         datasource.username = "sa"
         datasource.password = "sa"
         datasource.url = "jdbc:h2:mem:testing;DB_CLOSE_DELAY=-1;MODE=MySQL"
         datasource.driver = "org.h2.Driver"
-
-        mail.port = 2525
 
         // Geb
         driver = {
@@ -50,7 +46,6 @@ environments {
         reportOnTestFailureOnly = true
     }
     prod {
-        mail.port = 25
     }
 }
 

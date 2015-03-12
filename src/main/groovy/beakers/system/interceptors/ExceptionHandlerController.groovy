@@ -30,7 +30,7 @@ public class ExceptionHandlerController {
     public String accessDeniedHandler(HttpServletRequest request, HttpServletResponse response, Exception e) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth.isAuthenticated()) {
-            return "redirect:/fail?code=403";
+            return "redirect:/error?code=403";
         } else {
             requestCache.saveRequest(request, response);
             return "redirect:/login";
@@ -55,6 +55,6 @@ public class ExceptionHandlerController {
         }
 
         // Otherwise setup and send the user to a default error-view.
-        return "redirect:/fail?code=500";
+        return "redirect:/error?code=500";
     }
 }

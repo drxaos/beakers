@@ -30,10 +30,10 @@ public class GroovyPlaceholderConfigurer extends PropertyPlaceholderConfigurer {
                 configSlurpers.each { ConfigSlurper configSlurper ->
                     def config = configSlurper.parse(loc)
                     configObject.merge(config)
-                    log.info("Loaded config: ${loc}")
+                    log.info("Config loaded: ${loc}")
                 }
             } catch (IOException ignore) {
-                log.warn("Cannot load config: ${loc}")
+                log.warn("Config not loaded: ${loc}")
             }
         }
         props.putAll(configObject.toProperties())

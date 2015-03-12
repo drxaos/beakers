@@ -18,9 +18,9 @@ class JobsController extends AbstractMvcController {
     JobManager jobManager
 
     @Secured(["ROLE_ADMIN"])
-    @RequestMapping(value = "/jobs/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/jobs/list", method = RequestMethod.GET)
     public ModelAndView listJobs() {
-        return new ModelAndView("system/jobs", [jobs: jobManager.jobs, tasks: jobManager.tasks])
+        return new ModelAndView("/admin/jobs", [jobs: jobManager.jobs, tasks: jobManager.tasks])
     }
 
 }

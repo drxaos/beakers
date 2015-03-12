@@ -21,7 +21,7 @@ public class ProfileController extends AbstractMvcController {
     @RequestMapping(value = "/profile", method = RequestMethod.GET)
     public ModelAndView profile() {
         def user = userService.currentLoggedInUser
-        return new ModelAndView("profile/profile", [user: user])
+        return new ModelAndView("auth/profile", [user: user])
     }
 
     @RequestMapping(value = "/profile/update", method = RequestMethod.POST)

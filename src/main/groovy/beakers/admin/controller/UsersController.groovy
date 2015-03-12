@@ -16,11 +16,11 @@ public class UsersController extends AbstractMvcController {
     @Autowired
     UserService userService
 
-    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/users", method = RequestMethod.GET)
     public ModelAndView listUsers() {
         def user = userService.currentLoggedInUser
         def list = userService.listUsers()
-        return new ModelAndView("system/users", [list: list, current: user])
+        return new ModelAndView("/admin/users", [list: list, current: user])
     }
 
 }

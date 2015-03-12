@@ -60,7 +60,10 @@
 
                             <sec:ifExpression value="hasRole('ROLE_ADMIN')">
                                 <li <% print pageProperty(name: "page.current") == "jobs" ? 'class="active"' : '' %>>
-                                    <a href="/jobs/list">Jobs</a>
+                                    <a href="/admin/jobs/list">Jobs</a>
+                                </li>
+                                <li <% print pageProperty(name: "page.current") == "users" ? 'class="active"' : '' %>>
+                                    <a href="/admin/users/list">Users</a>
                                 </li>
                             </sec:ifExpression>
                         </ul>

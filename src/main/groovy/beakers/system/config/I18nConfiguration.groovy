@@ -1,9 +1,9 @@
 package beakers.system.config
 
+import org.springframework.context.MessageSource
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.context.support.AbstractMessageSource
-import org.springframework.context.support.ResourceBundleMessageSource
+import org.springframework.context.support.ReloadableResourceBundleMessageSource
 
 /**
  * Enable messages.properties
@@ -12,8 +12,8 @@ import org.springframework.context.support.ResourceBundleMessageSource
 public class I18nConfiguration {
 
     @Bean
-    public AbstractMessageSource servletContainerCustomizer() {
-        return new ResourceBundleMessageSource(basename: "messages");
+    MessageSource messageSource() {
+        new ReloadableResourceBundleMessageSource(defaultEncoding: "UTF-8", basenames: ["classpath:messages"])
     }
 
 }

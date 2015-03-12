@@ -4,7 +4,7 @@ import beakers.system.domain.auth.User
 import beakers.system.errors.domain.auth.EmailAlreadyExists
 import beakers.system.errors.domain.auth.UsernameAlreadyExists
 import beakers.system.service.auth.UserService
-import beakers.system.utils.mail.SmtpStubServer
+import beakers.mail.utils.SmtpStubServer
 import grails.util.Holders
 import junit.framework.Assert
 import org.junit.Test

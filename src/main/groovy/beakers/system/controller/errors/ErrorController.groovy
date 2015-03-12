@@ -24,13 +24,13 @@ public class ErrorController extends AbstractMvcController {
     @Autowired
     ApplicationContext applicationContext
 
-    @RequestMapping(value = "/failRedirect", method = RequestMethod.GET)
+    @RequestMapping(value = "/errorRedirect", method = RequestMethod.GET)
     public ModelAndView redirectToError(String code, HttpServletRequest request) {
         String from = request.getAttribute(RequestDispatcher.FORWARD_REQUEST_URI)
-        return new ModelAndView("redirect:/fail?code=${code}&from=${UriUtils.encodeFragment(from, Charset.defaultCharset().name())}");
+        return new ModelAndView("redirect:/error?code=${code}&from=${UriUtils.encodeFragment(from, Charset.defaultCharset().name())}");
     }
 
-    @RequestMapping(value = "/fail", method = RequestMethod.GET)
+    @RequestMapping(value = "/error", method = RequestMethod.GET)
     public ModelAndView showError(String code) {
         User p = null
         try {
@@ -40,9 +40,9 @@ public class ErrorController extends AbstractMvcController {
         }
 
         if (code == "404") {
-            return new ModelAndView("system/errorNotFound", [player: p]);
+            return new ModelAndView("errors/errorNotFound", [player: p]);
         } else if (code == "403") {
-            return new ModelAndView("system/errorAccessDenied", [player: p]);
+            return new ModelAndView("errors/errorAccessDenied", [player: p]);
         }
 
         return new ModelAndView("system/error", [player: p]);
@@ -58,6 +58,6 @@ public class ErrorController extends AbstractMvcController {
             // nothing
         }
 
-        return new ModelAndView("system/errorNotFound", [player: p]);
+        return new ModelAndView("errors/errorNotFound", [player: p]);
     }
 }

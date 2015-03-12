@@ -83,6 +83,7 @@ public class MessageFactoryService {
         codes.addAll(getCodes(path, type, value))
 
         def msg = null
+        log.debug("Searching message: ${codes.first()}")
         for (code in codes) {
             try {
                 msg = messageSource.getMessage("" + code, args as Object[], Locale.default)

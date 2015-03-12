@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/drxaos/beakers.svg?branch=master)](https://travis-ci.org/drxaos/beakers)
 
+<img align="right" src="src/main/resources/static/images/logo.png">
+
 Beakers
 ===
 

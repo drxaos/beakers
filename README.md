@@ -2,7 +2,7 @@
 
 Beakers
 ===
-<img align="right" src="src/main/resources/static/images/logo.png">
+<img align="right" src="https://raw.githubusercontent.com/drxaos/beakers/master/src/main/resources/static/images/logo.png">
 
 [Beakers][Beakers] is a template of web application based on [Spring][Spring] with the [Groovy][Groovy] programming language. It's already integrated with a number of libraries and offers a quick start for programming business logic.
 [Beakers]: http://drxaos.github.io/beakers/
@@ -10,6 +10,7 @@ Beakers
 [Groovy]: http://groovy-lang.org/
 
 * Project page: http://drxaos.github.io/beakers/
+* Demo application: http://beakers.v-pp.ru/
 * Spring: https://spring.io/
 * Groovy: http://groovy-lang.org/
 

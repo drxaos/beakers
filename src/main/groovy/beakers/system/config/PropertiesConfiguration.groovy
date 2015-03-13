@@ -1,5 +1,6 @@
 package beakers.system.config
 
+import beakers.system.BeakersCore
 import beakers.system.utils.GroovyPlaceholderConfigurer
 import org.codehaus.groovy.grails.commons.DefaultGrailsApplication
 import org.springframework.beans.BeansException
@@ -23,16 +24,16 @@ class PropertiesConfiguration implements ApplicationContextAware, EnvironmentAwa
     public GroovyPlaceholderConfigurer placeHolderConfigurer() {
         def homeDirectory = applicationContext.getEnvironment().getProperty("user.home")
         def appName = applicationContext.getEnvironment().getProperty("application.name")
-        def holders = applicationContext.getBeansOfType(GroovyConfigResource).collect { String name, GroovyConfigResource bean -> bean.resource }
+
+        def moduleResources = BeakersCore.activeModules.collect { it.newInstance().configResource?.resource }.unique()
+        moduleResources.remove(null)
 
         return new GroovyPlaceholderConfigurer(
                 grailsApplication: applicationContext.getBean(DefaultGrailsApplication),
                 environment: environment,
-                locations: holders + [
+                locations: moduleResources + [
                         applicationContext.getResource("classpath:application.class"),
                         applicationContext.getResource("classpath:application.groovy"),
-                        applicationContext.getResource("classpath:config/application.class"),
-                        applicationContext.getResource("classpath:config/application.groovy"),
                         applicationContext.getResource("file://${homeDirectory}/.config/${appName}.groovy"),
                         applicationContext.getResource("file://${homeDirectory}/.${appName}/config.groovy"),
                         applicationContext.getResource("file://${homeDirectory}/${appName}/config.groovy"),

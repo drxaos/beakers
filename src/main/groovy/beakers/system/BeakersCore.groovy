@@ -2,13 +2,14 @@ package beakers.system
 
 import beakers.system.config.ApplicationConfig
 import beakers.system.config.GroovyConfigResource
+import beakers.system.types.BeakersModule
+import groovy.util.logging.Log4j
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration
 import org.springframework.boot.autoconfigure.web.BasicErrorController
 import org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration
-import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.EnableAspectJAutoProxy
@@ -16,12 +17,14 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy
 import java.lang.reflect.Field
 import java.nio.charset.Charset
 
+@Log4j
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration(exclude = [BasicErrorController, LiquibaseAutoConfiguration, ErrorMvcAutoConfiguration])
 @EnableAspectJAutoProxy(proxyTargetClass = true)
-public class BeakersCore {
+public class BeakersCore extends BeakersModule {
 
+    static Collection<Class<? extends BeakersModule>> activeModules
     static applicationContext
     private static params = []
 
@@ -35,16 +38,31 @@ public class BeakersCore {
         }
     }
 
-    @Bean
-    GroovyConfigResource beakersCoreConfig() {
+    @Override
+    GroovyConfigResource getConfigResource() {
         return new GroovyConfigResource(ApplicationConfig)
+    }
+
+    private static Collection<Class<? extends BeakersModule>> resolveDependencies(
+            Collection<Class<? extends BeakersModule>> modules, LinkedHashSet<Class> result = null) {
+        if (result == null) {
+            result = new LinkedHashSet<>()
+        }
+        def deps = modules.collect { it?.newInstance()?.dependencies ?: [] }.flatten().unique()
+        if (!deps.isEmpty()) {
+            resolveDependencies(deps, result)
+        }
+        result.addAll(modules)
+        return result
     }
 
     /**
      * @param args First argument is active profile and other are params used by configuration
      */
-    public static void launch(List<Class> appClasses, String[] args) throws Exception {
-        SpringApplication app = new SpringApplication((appClasses + [BeakersCore]) as Object[]);
+    public static void launch(Collection<Class<? extends BeakersModule>> appClasses, String[] args) throws Exception {
+        activeModules = resolveDependencies(appClasses)
+        log.info("Active modules: ${activeModules*.simpleName.join(", ")}")
+        SpringApplication app = new SpringApplication(activeModules as Object[]);
         if (args.length >= 1) {
             app.setAdditionalProfiles(args[0])
             for (int i = 1; i < args.length; i++) {

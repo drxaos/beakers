@@ -1,39 +1,29 @@
 package sample
 
 import beakers.system.BeakersCore
-import beakers.admin.AdminCoreModule
-import beakers.jobs.JobsCoreModule
-import beakers.mail.MailCoreModule
 import beakers.system.config.GroovyConfigResource
-import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Configuration
+import beakers.system.types.BeakersModule
 import sample.generic.GenericSamplesModule
 import sample.guestbook.GuestBookSamplesModule
 import sample.home.HomeSamplesModule
 
-@Configuration
-public class SamplesRunner {
+public class SamplesRunner extends BeakersModule {
 
-    @Bean
-    GroovyConfigResource samplesConfig() {
+    @Override
+    GroovyConfigResource getConfigResource() {
         return new GroovyConfigResource(SamplesConfig)
     }
 
-    public static void main(String[] args) throws Exception {
-        BeakersCore.launch([
-                // core
-                BeakersCore,
-                MailCoreModule,
-                JobsCoreModule,
-                AdminCoreModule,
-
-                // modules
+    @Override
+    Class<? extends BeakersModule>[] getDependencies() {
+        return [
                 HomeSamplesModule,
                 GuestBookSamplesModule,
                 GenericSamplesModule,
+        ]
+    }
 
-                // config
-                SamplesRunner,
-        ], args)
+    public static void main(String[] args) throws Exception {
+        BeakersCore.launch(SamplesRunner, args)
     }
 }

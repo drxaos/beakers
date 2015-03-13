@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseAutoConfiguration
 import org.springframework.boot.autoconfigure.web.BasicErrorController
 import org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration
+import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.EnableAspectJAutoProxy
@@ -61,8 +62,13 @@ public class BeakersCore extends BeakersModule {
      */
     public static void launch(Collection<Class<? extends BeakersModule>> appClasses, String[] args) throws Exception {
         activeModules = resolveDependencies(appClasses)
-        log.info("Active modules: ${activeModules*.simpleName.join(", ")}")
-        SpringApplication app = new SpringApplication(activeModules as Object[]);
+        SpringApplication app = new SpringApplication(activeModules as Object[]) {
+            @Override
+            protected void load(ApplicationContext context, Object[] sources) {
+                BeakersCore.log.info("Active modules: ${activeModules*.simpleName.join(", ")}")
+                super.load(context, sources)
+            }
+        }
         if (args.length >= 1) {
             app.setAdditionalProfiles(args[0])
             for (int i = 1; i < args.length; i++) {

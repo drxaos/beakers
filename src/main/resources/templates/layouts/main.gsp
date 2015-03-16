@@ -15,12 +15,14 @@
     <link href='favicon.ico' rel='icon'/>
     <link rel="icon" type="image/png" href="/static/favicon.png"/>
 
+    <script src="/static/js/json2.min.js"></script>
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/jquery.form.min.js"></script>
+    <script src="/static/js/jstorage.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>
-    <script src="/static/js/bus.js"></script>
     <script src="/static/js/ripples.min.js"></script>
     <script src="/static/js/material.min.js"></script>
+    <script src="/static/js/bus.js"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>

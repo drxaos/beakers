@@ -15,6 +15,12 @@ $(document).ready(function () {
 });
 
 BUS.on("page.alert", function (event, data) {
+
+    $.jStorage.set("page.alert.url", document.URL);
+    $.jStorage.set("page.alert.data", data);
+    $.jStorage.setTTL("page.alert.url", 30000);
+    $.jStorage.setTTL("page.alert.data", 30000);
+
     var message = data.message;
     var type = data.alert;
 
@@ -111,4 +117,11 @@ BUS.on("page.alert", function (event, data) {
     }
     var newPageHeight = $(document).height();
     $(document).scrollTop($(document).scrollTop() + newPageHeight - pageHeight);
+});
+
+$(document).ready(function () {
+    var pageAlertData = $.jStorage.get("page.alert.data");
+    if (pageAlertData) {
+        //BUS.trigger("page.alert", pageAlertData);
+    }
 });

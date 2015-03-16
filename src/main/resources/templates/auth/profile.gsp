@@ -1,15 +1,11 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Profile - Beakers</title>
+    <title>Profile</title>
     <sitemesh:parameter name="current" value="profile"/>
 </head>
 
 <body>
-
-<div class="page-header text-center">
-    <h1>Profile</h1>
-</div>
 
 <div class="row">
     <div class="col-md-3"></div>

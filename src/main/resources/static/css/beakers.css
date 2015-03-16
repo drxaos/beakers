@@ -19,7 +19,6 @@ input[type="number"] {
 
 .form-control[readonly] {
     cursor: default !important;
-    background-color: #fff;
     opacity: 1 !important;
 }
 

@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><g:layoutTitle default="Beakers"/></title>
+    <title><g:layoutTitle default="Home"/> - Beakers</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <script src="/static/js/jquery.min.js"></script>
-    <link href="/static/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css"/>
-    <script src="/static/js/bootstrap.min.js"></script>
+    %{--<link rel="stylesheet" href="/static/css/bootstrap-theme.min.css"/>--}%
+    <link rel="stylesheet" href="/static/css/ripples.min.css">
+    <link rel="stylesheet" href="/static/css/material-wfont.min.css">
+    <link rel="stylesheet" href="/static/css/beakers.css"/>
 
     <link href='favicon.ico' rel='icon'/>
     <link rel="icon" type="image/png" href="/static/favicon.png"/>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-    <link rel="stylesheet" href="/static/css/beakers.css"/>
-    <script type="text/javascript" src="/static/js/bus.js"></script>
-    <script type="text/javascript" src="/static/js/number-polyfill.js"></script>
-    <script type="text/javascript" src="/static/js/jquery.form.min.js"></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery.form.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/bus.js"></script>
+    <script src="/static/js/ripples.min.js"></script>
+    <script src="/static/js/material.min.js"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -43,7 +45,8 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/">Beakers</a>
+                        <a class="navbar-brand" href="/"><img src="/static/images/logo-inverse.png" width="34"
+                                                              height="34" class="pull-left"/>&nbsp;Beakers</a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -95,6 +98,16 @@
                 </div>
             </nav>
 
+            <ul class="breadcrumb" style="margin-bottom: 5px;">
+                <g:each in="${["", 1, 2, 3, 4, 5]}" var="n">
+                    <g:ifPageProperty name="meta.parent${n}_title">
+                        <li><a href="<g:pageProperty name="meta.parent${n}_link" default=""/>"><g:pageProperty
+                                name="meta.parent${n}_title" default=""/></a></li>
+                    </g:ifPageProperty>
+                </g:each>
+                <li class="active"><g:layoutTitle default="Home"/></li>
+            </ul>
+
             <div class="alertsHolder__container" style="height: 1px"></div>
             <script language="JavaScript">
                 // todo alert from query params
@@ -112,5 +125,12 @@
     </div>
 
 </div>
+
+<script>
+    $(document).ready(function () {
+        $.material.init();
+    });
+</script>
+
 </body>
 </html>

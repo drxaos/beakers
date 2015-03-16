@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Registration - Beakers</title>
+    <title>Registration</title>
 </head>
 
 <body>
@@ -10,10 +10,6 @@
     <div class="col-md-3"></div>
 
     <div class="col-md-6">
-        <div class="page-header">
-            <h1>Sign up</h1>
-        </div>
-
         <div class="wrapper">
             <form class="form-signup text-left" action="/signup/process" method="post">
 

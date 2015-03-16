@@ -2,7 +2,9 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Jobs list - Beakers</title>
+    <meta name="parent_link" content="/admin"/>
+    <meta name="parent_title" content="Admin"/>
+    <title>Jobs list</title>
     <sitemesh:parameter name="current" value="jobs"/>
 </head>
 

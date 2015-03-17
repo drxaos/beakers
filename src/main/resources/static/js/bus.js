@@ -124,7 +124,7 @@ BUS.on("page.alert", function (event, data) {
             $(".alertsHolder__container").html("&nbsp");
 
             if (!animateHeight) {
-                $(document).scrollTop($(document).scrollTop() + newPageHeight - pageHeight);
+                $(document).scrollTop(curScroll + newPageHeight - pageHeight);
             }
         });
 
@@ -141,8 +141,16 @@ BUS.on("page.alert", function (event, data) {
     $('.alertsHolder__alert').css("top", "20px");
 
     if (!animateHeight) {
-        $(document).scrollTop($(document).scrollTop() + newPageHeight - pageHeight + 20);
+        $(document).scrollTop(curScroll + newPageHeight - pageHeight + 20);
     }
+
+    $(window).unbind("resize").resize(function () {
+        var curWidth = $('.alertsHolder__container').width();
+        $('.alertsHolder__alert').css("width", "" + curWidth + "px");
+        $('.alertsHolder__container').css('height', 'auto');
+        var curHeight = $('.alertsHolder__container').height();
+        $('.alertsHolder__container').css("height", "" + (curHeight + 20) + "px");
+    });
 });
 
 $(document).ready(function () {

@@ -55,3 +55,27 @@ body {
     color: gray;
     font-size: small;
 }
+
+.shadow-z-1, .z-1 {
+    z-index: 100;
+}
+
+.shadow-z-2, .z-2 {
+    z-index: 200;
+}
+
+.shadow-z-3, .z-3 {
+    z-index: 300;
+}
+
+.shadow-z-4, .z-4 {
+    z-index: 400;
+}
+
+.shadow-z-5, .z-5 {
+    z-index: 500;
+}
+
+.alertsHolder__alert.affix {
+
+}

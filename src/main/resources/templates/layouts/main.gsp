@@ -1,20 +1,26 @@
+<%@ page import="grails.util.Holders" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title><g:layoutTitle default="Home"/> - Beakers</title>
+    %{--TITLE--}%
+    <title><g:layoutTitle default="Home"/> - ${Holders.config.app.title}</title>
+
+    %{--META--}%
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+    %{--CSS--}%
     <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
-    %{--<link rel="stylesheet" href="/static/css/bootstrap-theme.min.css"/>--}%
     <link rel="stylesheet" href="/static/css/ripples.min.css">
     <link rel="stylesheet" href="/static/css/material-wfont.min.css">
     <link rel="stylesheet" href="/static/css/beakers.css"/>
 
+    %{--FAVICON--}%
     <link href='favicon.ico' rel='icon'/>
     <link rel="icon" type="image/png" href="/static/favicon.png"/>
 
+    %{--JS--}%
     <script src="/static/js/json2.min.js"></script>
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/jquery.form.min.js"></script>
@@ -33,97 +39,39 @@
 </head>
 
 <body>
+
 <div id="clearfix" class="clearfix">
 
-    <div class="container layout__container">
-        <div>
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                                data-target="#bs-example-navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="/"><img src="/static/images/logo-inverse.png" width="34"
-                                                              height="34" class="pull-left"/>&nbsp;Beakers</a>
-                    </div>
+    <nav class="navbar navbar-inverse shadow-z-2">
+        <div class="container container-fluid">
 
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li <% print pageProperty(name: "page.current") == "home" ? 'class="active"' : '' %>>
-                                <a href="/home">Home</a>
-                            </li>
+            <g:render template="layouts/header"/>
 
-                            <sec:ifLoggedIn>
-                                <li <% print pageProperty(name: "page.current") == "profile" ? 'class="active"' : '' %>>
-                                    <a href="/profile">Profile</a>
-                                </li>
-                            </sec:ifLoggedIn>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <g:render template="index/navbar-home"/>
+                    <g:render template="auth/navbar-profile"/>
+                    <g:render template="admin/navbar-menu"/>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <g:render template="auth/navbar-login"/>
+                </ul>
+            </div>
 
-                            <sec:ifExpression value="hasRole('ROLE_ADMIN')">
-                                <li <% print pageProperty(name: "page.current") == "jobs" ? 'class="active"' : '' %>>
-                                    <a href="/admin/jobs/list">Jobs</a>
-                                </li>
-                                <li <% print pageProperty(name: "page.current") == "users" ? 'class="active"' : '' %>>
-                                    <a href="/admin/users/list">Users</a>
-                                </li>
-                            </sec:ifExpression>
-                        </ul>
-
-                        <ul class="nav navbar-nav navbar-right">
-                            <sec:ifLoggedIn>
-                                <li>
-                                    <a class="navbar-link ellipsis navbar__usernameContainer"
-                                       style="max-width: 35ex; color: #ffffff">
-                                        [<span class="navbar__username"><sec:loggedInUsername/></span>]
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/signout" class="navbar-link navbar__logout"
-                                       style="text-decoration: underline">Logout</a>
-                                </li>
-                            </sec:ifLoggedIn>
-
-                            <sec:ifNotLoggedIn>
-                                <li>
-                                    <a href="/login" class="navbar-link navbar__login"
-                                       style="text-decoration: underline">Login</a>
-                                </li>
-                            </sec:ifNotLoggedIn>
-                        </ul>
-
-                    </div>
-
-                </div>
-            </nav>
-
-            <ul class="breadcrumb" style="margin-bottom: 5px;">
-                <g:each in="${["", 1, 2, 3, 4, 5]}" var="n">
-                    <g:ifPageProperty name="meta.parent${n}_title">
-                        <li><a href="<g:pageProperty name="meta.parent${n}_link" default=""/>"><g:pageProperty
-                                name="meta.parent${n}_title" default=""/></a></li>
-                    </g:ifPageProperty>
-                </g:each>
-                <li class="active"><g:layoutTitle default="Home"/></li>
-            </ul>
-
-            <div class="alertsHolder__container" style="height: 1px"></div>
-            <script language="JavaScript">
-                // todo alert from query params
-            </script>
-
-            <g:layoutBody/>
-
-            <footer class="footer">
-                <div class="container text-center">
-                    <a href="http://drxaos.github.io/beakers/" target="_blank">Beakers</a> |
-                    <a href="https://github.com/drxaos/beakers" target="_blank">Github</a>
-                </div>
-            </footer>
         </div>
+    </nav>
+
+    <div class="container layout__container">
+
+        <g:render template="layouts/alert"/>
+
+        <g:render template="layouts/breadcrumb"/>
+
+        <div class="z-1">
+            <g:layoutBody/>
+        </div>
+
+        <g:render template="layouts/footer"/>
     </div>
 
 </div>

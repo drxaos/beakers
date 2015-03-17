@@ -10,36 +10,36 @@
     <div class="col-md-3"></div>
 
     <div class="col-md-6">
-        <div class="wrapper">
+        <div class="wrapper well">
             <form class="form-signup text-left" action="/signup/process" method="post">
 
                 <div class="form-group">
                     <h3 class="control-label">Full name</h3>
-                    <input type="text" class="form-control" name="fullName" placeholder="Имя" required="" autofocus=""/>
+                    <input type="text" class="form-control" name="fullName" placeholder="Your name" required="" autofocus=""/>
                     <span class="help-block"></span>
                 </div>
 
                 <div class="form-group">
                     <h3 class="control-label">Login</h3>
-                    <input type="text" class="form-control" name="username" placeholder="Логин" required=""/>
+                    <input type="text" class="form-control" name="username" placeholder="Choose username" required=""/>
                     <span class="help-block"></span>
                 </div>
 
                 <div class="form-group">
                     <h3 class="control-label">Password</h3>
-                    <input type="password" class="form-control" name="password" placeholder="Пароль" required=""/>
+                    <input type="password" class="form-control" name="password" placeholder="Enter password" required=""/>
                     <span class="help-block"></span>
                 </div>
 
                 <div class="form-group">
                     <h3 class="control-label">E-Mail</h3>
-                    <input type="text" class="form-control" name="email" placeholder="E-Mail" required="" autofocus=""/>
+                    <input type="text" class="form-control" name="email" placeholder="Your E-Mail" required="" autofocus=""/>
                     <span class="help-block"></span>
                 </div>
 
                 <div style="height: 30px">&nbsp;</div>
 
-                <button class="btn btn-lg btn-danger btn-block" type="submit">Sign up</button>
+                <button class="btn btn-lg btn-danger btn-block shadow-z-1" type="submit">Sign up</button>
             </form>
         </div>
     </div>

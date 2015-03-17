@@ -12,7 +12,7 @@
 
     <div class="col-md-6">
 
-        <div class="wrapper">
+        <div class="wrapper well">
             <form class="form-profile text-left" action="/profile/update" method="post">
 
                 <div class="form-group">

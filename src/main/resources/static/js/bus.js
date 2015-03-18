@@ -102,30 +102,41 @@ BUS.on("page.alert", function (event, data) {
         var autoHeight = $('.alertsHolder__container').height();
         var newPageHeight = $(document).height();
         $('.alertsHolder__container').height(curHeight).animate({height: autoHeight + 20}, {
-            duration: animateHeight ? 500 : 0, complete: function () {
-                $(".alertsHolder__alert").animate({opacity: 0.87}, 200);
+            duration: animateHeight ? 500 : 0, easing: "easeOutQuint", complete: function () {
+                $(".alertsHolder__alert").animate({opacity: 0.87}, {duration: 400, easing: "easeOutQuint"});
+                $(window).trigger('resize');
             }
         });
 
-        $('.alertsHolder__alert').bind('closed.bs.alert', function () {
-            var pageHeight = $(document).height();
-            var curScroll = $(document).scrollTop();
-            var curTop = $(".alertsHolder__container").offset().top;
-            var animateHeight = curScroll <= curTop + 5;
+        $('.alertsHolder__alert').bind('close.bs.alert', function () {
+            $(".alertsHolder__alert").animate({opacity: 0.01}, {
+                duration: 200, easing: "easeOutQuint", complete: function () {
+                    $(".alertsHolder__container").html("");
 
-            var curHeight = $('.alertsHolder__container').height();
-            if (curHeight < 1) {
-                curHeight = 1;
-            }
-            $('.alertsHolder__container').css('height', 'auto');
-            var autoHeight = $('.alertsHolder__container').height();
-            var newPageHeight = $(document).height();
-            $('.alertsHolder__container').height(curHeight).animate({height: autoHeight}, animateHeight ? 500 : 0);
-            $(".alertsHolder__container").html("&nbsp");
+                    var pageHeight = $(document).height();
+                    var curScroll = $(document).scrollTop();
+                    var curTop = $(".alertsHolder__container").offset().top;
+                    var animateHeight = curScroll <= curTop + 5;
 
-            if (!animateHeight) {
-                $(document).scrollTop(curScroll + newPageHeight - pageHeight);
-            }
+                    var curHeight = $('.alertsHolder__container').height();
+                    if (curHeight < 1) {
+                        curHeight = 1;
+                    }
+                    $('.alertsHolder__container').css('height', 'auto');
+                    var autoHeight = $('.alertsHolder__container').height();
+                    var newPageHeight = $(document).height();
+                    $('.alertsHolder__container').height(curHeight).animate({height: autoHeight}, {
+                        duration: animateHeight ? 500 : 0, easing: "easeOutQuint", complete: function () {
+                            $(window).trigger('resize');
+                        }
+                    });
+
+                    if (!animateHeight) {
+                        $(document).scrollTop(curScroll + newPageHeight - pageHeight);
+                    }
+                }
+            });
+            return false;
         });
 
         $(".alertsHolder__container .alertsHolder__alert").affix({
@@ -143,14 +154,16 @@ BUS.on("page.alert", function (event, data) {
     if (!animateHeight) {
         $(document).scrollTop(curScroll + newPageHeight - pageHeight + 20);
     }
+});
 
-    $(window).unbind("resize").resize(function () {
-        var curWidth = $('.alertsHolder__container').width();
-        $('.alertsHolder__alert').css("width", "" + curWidth + "px");
-        $('.alertsHolder__container').css('height', 'auto');
+$(window).resize(function () {
+    var curWidth = $('.alertsHolder__container').width();
+    $('.alertsHolder__alert').css("width", "" + curWidth + "px");
+    $('.alertsHolder__container').css('height', 'auto');
+    if ($('.alertsHolder__container').html().length > 0) {
         var curHeight = $('.alertsHolder__container').height();
         $('.alertsHolder__container').css("height", "" + (curHeight + 20) + "px");
-    });
+    }
 });
 
 $(document).ready(function () {

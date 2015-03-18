@@ -1,6 +1,8 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
+    <meta name="parent_link" content="/login"/>
+    <meta name="parent_title" content="Login"/>
     <title>Registration</title>
 </head>
 

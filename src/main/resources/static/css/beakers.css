@@ -76,6 +76,6 @@ body {
     z-index: 500;
 }
 
-.alertsHolder__alert.affix {
-
+.z-enable {
+    position: relative;
 }

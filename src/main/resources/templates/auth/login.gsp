@@ -20,7 +20,7 @@
                 <input type="password" class="form-control" name="password" placeholder="Your password" required=""/>
 
                 <div style="margin-bottom: 50px">
-                    <a href="/signup" class="pull-right z-5" style="margin: 5px 0; color: red"><b>Sign Up</b></a>
+                    <a href="/signup" class="pull-right z-5 z-enable" style="margin: 5px 0; color: red"><b>Sign Up</b></a>
                     <div class="checkbox">
                         <label>
                             <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"

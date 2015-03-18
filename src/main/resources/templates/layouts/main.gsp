@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/static/css/ripples.min.css">
     <link rel="stylesheet" href="/static/css/material-wfont.min.css">
+    <link rel="stylesheet" href="/static/css/octicons.css">
     <link rel="stylesheet" href="/static/css/beakers.css"/>
 
     %{--FAVICON--}%
@@ -23,6 +24,7 @@
     %{--JS--}%
     <script src="/static/js/json2.min.js"></script>
     <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/jquery-ui.min.js"></script>
     <script src="/static/js/jquery.form.min.js"></script>
     <script src="/static/js/jstorage.js"></script>
     <script src="/static/js/bootstrap.min.js"></script>

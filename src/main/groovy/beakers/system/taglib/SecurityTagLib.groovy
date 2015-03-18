@@ -1,18 +1,11 @@
 package beakers.system.taglib
 
+import beakers.system.security.SecurityExpressionEvaluator
 import beakers.system.service.auth.UserService
 import grails.gsp.TagLib
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.expression.Expression
-import org.springframework.security.access.expression.ExpressionUtils
-import org.springframework.security.access.expression.SecurityExpressionHandler
-import org.springframework.security.authentication.AnonymousAuthenticationToken
-import org.springframework.security.core.authority.AuthorityUtils
 import org.springframework.security.core.context.SecurityContextHolder
-import org.springframework.security.web.FilterInvocation
 import org.springframework.stereotype.Component
-
-import javax.servlet.FilterChain
 
 @TagLib
 @Component
@@ -23,12 +16,7 @@ class SecurityTagLib {
     UserService userService
 
     @Autowired
-    SecurityExpressionHandler securityExpressionHandler
-
-    protected Map<String, Expression> expressionCache = [:]
-    protected static final FilterChain DUMMY_CHAIN = [
-            doFilter: { req, res -> throw new UnsupportedOperationException() }
-    ] as FilterChain
+    SecurityExpressionEvaluator securityExpressionEvaluator
 
     def ifLoggedIn = { attrs, body ->
         if (userService.currentLoggedInUser) {
@@ -54,27 +42,13 @@ class SecurityTagLib {
 
     protected boolean evaluate(String expr) {
         def auth = SecurityContextHolder.getContext().getAuthentication()
-        if (auth == null) {
-            auth = new AnonymousAuthenticationToken("key", "anonymousUser", AuthorityUtils.createAuthorityList("ROLE_ANONYMOUS"))
-        }
 
         if (expr) {
-            Expression expression = findOrCreateExpression(expr)
-            FilterInvocation fi = new FilterInvocation(request, response, DUMMY_CHAIN)
-            def ctx = securityExpressionHandler.createEvaluationContext(auth, fi)
-            return ExpressionUtils.evaluateAsBoolean(expression, ctx)
+            return securityExpressionEvaluator.eval(expr, auth, request, response)
         }
 
-        return true
+        return false
     }
 
-    protected synchronized Expression findOrCreateExpression(String text) {
-        Expression expression = expressionCache.get(text)
-        if (!expression) {
-            expression = securityExpressionHandler.expressionParser.parseExpression(text)
-            expressionCache[text] = expression
-        }
-        return expression
-    }
 
 }

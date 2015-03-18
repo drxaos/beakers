@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestMethod
 
 @Controller
-@PreAuthorize("hasRole('ROLE_USER')")
+@PreAuthorize("isAnonymous() or isAuthenticated()")
 public class SampleController extends AbstractMvcController {
 
     @RequestMapping(value = "/generic", method = RequestMethod.GET)

@@ -1,25 +1,17 @@
-package beakers.system.events
+package beakers.system.websocket
 
-import beakers.system.config.WebsocketConfiguration
-import beakers.system.events.websocket.ClientInEvent
-import beakers.system.events.websocket.ClientOutEvent
+import beakers.system.domain.auth.User
 import beakers.system.security.SecurityExpressionEvaluator
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationContext
-import org.springframework.stereotype.Component
 
 import javax.websocket.OnClose
 import javax.websocket.OnMessage
 import javax.websocket.OnOpen
 import javax.websocket.Session
-import javax.websocket.server.ServerEndpoint
 
-@Component
-@ServerEndpoint(value = "/bus", configurator = WebsocketConfiguration.SpringBootConfigurator.class)
-public class BusEndpoint {
-    @Autowired
-    EventBus eventBus
+abstract class SecuredBroadcastingEndpoint {
 
     @Autowired
     ApplicationContext applicationContext
@@ -28,6 +20,7 @@ public class BusEndpoint {
 
     @OnOpen
     public void onOpen(final Session session) {
+        // todo check security expression
         sessions.add(session)
     }
 
@@ -38,26 +31,28 @@ public class BusEndpoint {
 
     @OnMessage
     public void onMessage(Session session, String payload) {
-        eventBus.publish(new ClientInEvent(
-                session: session
-        ))
+        // todo extract User
+        // todo check security expression
+        handler(user, session, payload)
     }
 
-    public void broadcast(Event event) {
-        if (!(event instanceof ClientOutEvent)) {
-            return
-        }
+    abstract void handler(User user, Session session, String payload);
 
+    public void send(User user, Object message) {
+        // todo find session
+        // todo send
+    }
+
+    public void broadcast(Object message) {
         ObjectMapper mapper = new ObjectMapper()
-        Map<String, Object> mappedObject = mapper.convertValue(event, Map.class)
-        mappedObject.eventType = event.class.simpleName
-        mappedObject.eventTypeQualified = event.class.name
+        Map<String, Object> mappedObject = mapper.convertValue(message, Map.class)
+        // customize?
         String json = mapper.writeValueAsString(mappedObject)
         synchronized (sessions) {
             for (Session s : sessions) {
                 if (s.isOpen()) {
                     def securityExpressionEvaluator = applicationContext.getBean(SecurityExpressionEvaluator)
-                    if (!securityExpressionEvaluator.eval(event.securityExpression, s.userPrincipal)) {
+                    if (!securityExpressionEvaluator.eval(securityExpression, s.userPrincipal)) {
                         continue
                     }
                     try {

@@ -12,7 +12,6 @@ import org.springframework.session.ExpiringSession
 import org.springframework.session.SessionRepository
 import org.springframework.session.web.http.CookieHttpSessionStrategy
 import org.springframework.session.web.http.SessionRepositoryFilter
-import org.springframework.web.socket.server.standard.ServerEndpointExporter
 
 import java.util.concurrent.TimeUnit
 
@@ -30,13 +29,6 @@ public class ServerConfiguration implements EmbeddedServletContainerCustomizer {
 
     @Value('${server.session.cache:100}')
     int sessionCacheSize
-
-    @Bean
-    public ServerEndpointExporter serverEndpointExporter() {
-        // web sockets
-        return new ServerEndpointExporter();
-    }
-
 
     @Bean
     public SessionRepository<ExpiringSession> sessionRepository() {

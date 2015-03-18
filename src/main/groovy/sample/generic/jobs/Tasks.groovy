@@ -1,16 +1,22 @@
 package sample.generic.jobs
 
+import beakers.system.events.EventBus
 import groovy.util.logging.Log4j
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Configuration
 import org.springframework.scheduling.annotation.Scheduled
+import sample.generic.events.SampleEvent
 
 @Log4j
 @Configuration
 class Tasks {
 
-    @Scheduled(fixedRate = 1234l)
-    public void dummyTask() {
-        // nothing
+    @Autowired
+    EventBus eventBus
+
+    @Scheduled(fixedRate = 5000l)
+    public void sampleTask() {
+        eventBus.publish(new SampleEvent(payload: "time: ${System.currentTimeMillis()}"))
     }
 
     @Scheduled(fixedDelay = 55555l)

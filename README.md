@@ -36,6 +36,7 @@ To customize template you need to modify some config files:
 ### GSP
 ### TagLibs
 ### Events
+### WebSockets
 ### Utils
 ### AOP
 ### Bootstrap

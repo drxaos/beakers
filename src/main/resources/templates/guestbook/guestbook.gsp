@@ -1,7 +1,9 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Home</title>
+    <meta name="parent_link" content="/samples"/>
+    <meta name="parent_title" content="Samples"/>
+    <title>Guestbook</title>
     <sitemesh:parameter name="current" value="home"/>
 </head>
 

@@ -1,7 +1,7 @@
 package beakers.system.config
 
 import beakers.system.BeakersCore
-import grails.util.Holders
+import beakers.system.utils.websocket.SecuredEndpointExporter
 import groovy.util.logging.Log4j
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -9,7 +9,6 @@ import org.springframework.core.annotation.AnnotationUtils
 import org.springframework.stereotype.Component
 import org.springframework.util.ClassUtils
 import org.springframework.util.ObjectUtils
-import org.springframework.web.context.WebApplicationContext
 import org.springframework.web.socket.server.standard.ServerEndpointExporter
 
 import javax.websocket.server.ServerEndpointConfig
@@ -21,10 +20,9 @@ import java.util.concurrent.ConcurrentHashMap
 @Configuration
 public class WebsocketConfiguration {
 
-
     @Bean
     public ServerEndpointExporter endpointExporter() {
-        return new ServerEndpointExporter();
+        return new SecuredEndpointExporter();
     }
 
     @Log4j
@@ -100,5 +98,4 @@ public class WebsocketConfiguration {
             return (NO_VALUE.equals(beanName) ? null : beanName);
         }
     }
-
 }

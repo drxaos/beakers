@@ -12,30 +12,7 @@
 
     <div class="col-md-10">
 
-        <div class="well">
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
-            <p>Hello.</p>
+        <div class="well" style="min-height: 400px">
             <p>Hello.</p>
         </div>
 

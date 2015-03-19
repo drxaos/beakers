@@ -1,3 +1,15 @@
+
+/*
+    BUS.trigger("page.alert", {
+        alert: "error", // error, warning, info, success, none
+        message: "Message HTML",
+        reload: true, // reload page and show alert
+        fields: [
+            {name: "fieldName1", message: "Hint below that field"},
+            {name: "fieldName2", message: "Another hint"},
+        ]
+    });
+*/
 BUS.on("page.alert", function (event, data) {
 
     if (data.reload == true) {
@@ -68,6 +80,11 @@ BUS.on("page.alert", function (event, data) {
         return;
     }
 
+    var easingFadeIn = "easeOutQuart";
+    var easingSizeIn = "easeOutCubic";
+    var easingFadeOut = "linear";
+    var easingSizeOut = "easeOutQuart";
+
     var pageHeight = $(document).height();
     var curScroll = $(document).scrollTop();
     var curTop = $(".alertsHolder__container").offset().top;
@@ -91,15 +108,15 @@ BUS.on("page.alert", function (event, data) {
         var autoHeight = $('.alertsHolder__container').height();
         var newPageHeight = $(document).height();
         $('.alertsHolder__container').height(curHeight).animate({height: autoHeight + 20}, {
-            duration: animateHeight ? 500 : 0, easing: "easeOutQuint", complete: function () {
-                $(".alertsHolder__alert").animate({opacity: 0.87}, {duration: 400, easing: "easeOutQuint"});
+            duration: animateHeight ? 200 : 0, easing: easingSizeIn, complete: function () {
+                $(".alertsHolder__alert").animate({opacity: 0.87}, {duration: 500, easing: easingFadeIn});
                 $(window).trigger('resize');
             }
         });
 
         $('.alertsHolder__alert').bind('close.bs.alert', function () {
             $(".alertsHolder__alert").animate({opacity: 0.01}, {
-                duration: 200, easing: "easeOutQuint", complete: function () {
+                duration: 100, easing: easingFadeOut, complete: function () {
                     $(".alertsHolder__container").html("");
 
                     var pageHeight = $(document).height();
@@ -115,7 +132,7 @@ BUS.on("page.alert", function (event, data) {
                     var autoHeight = $('.alertsHolder__container').height();
                     var newPageHeight = $(document).height();
                     $('.alertsHolder__container').height(curHeight).animate({height: autoHeight}, {
-                        duration: animateHeight ? 500 : 0, easing: "easeOutQuint", complete: function () {
+                        duration: animateHeight ? 200 : 0, easing: easingSizeOut, complete: function () {
                             $(window).trigger('resize');
                         }
                     });

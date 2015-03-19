@@ -1,5 +1,7 @@
 package beakers.system.events
 
+import beakers.system.events.websocket.BusEndpoint
+import beakers.system.events.websocket.ClientOutEvent
 import groovy.util.logging.Log4j
 import org.codehaus.groovy.grails.plugins.support.BeanPostProcessorAdapter
 import org.springframework.aop.support.AopUtils
@@ -40,7 +42,9 @@ class EventBus extends BeanPostProcessorAdapter {
                 }
             }
         }
-        busEndpoint.broadcast(event)
+        if (event instanceof ClientOutEvent) {
+            busEndpoint.broadcast(event, event.securityExpression)
+        }
     }
 
     @Override

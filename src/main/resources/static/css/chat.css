@@ -1,0 +1,9 @@
+.chat__history, .chat__users {
+    min-height: 400px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.chat__userTemplate, .chat__messageTemplate {
+    display: none;
+}

@@ -56,6 +56,7 @@
                 <ul class="nav navbar-nav">
                     <g:render template="index/navbar-home"/>
                     <g:render template="auth/navbar-profile"/>
+                    <g:render template="samples/navbar-menu"/>
                     <g:render template="admin/navbar-menu"/>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

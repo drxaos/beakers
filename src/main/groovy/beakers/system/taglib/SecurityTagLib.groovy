@@ -30,6 +30,12 @@ class SecurityTagLib {
         }
     }
 
+    def ifNotExpression = { attrs, body ->
+        if (!evaluate(attrs.remove("value"))) {
+            out << body()
+        }
+    }
+
     def ifNotLoggedIn = { attrs, body ->
         if (!userService.currentLoggedInUser) {
             out << body()

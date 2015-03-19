@@ -103,7 +103,12 @@
 </div>
 
 <script>
-
+    <sec:ifExpression value="isAuthenticated()">
+    window._chat_enabled = true;
+    </sec:ifExpression>
+    <sec:ifNotExpression value="isAuthenticated()">
+    window._chat_enabled = false;
+    </sec:ifNotExpression>
 </script>
 </body>
 </html>

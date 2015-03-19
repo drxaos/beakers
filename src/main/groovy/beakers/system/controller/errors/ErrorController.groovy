@@ -45,7 +45,7 @@ public class ErrorController extends AbstractMvcController {
             return new ModelAndView("errors/errorAccessDenied", [player: p]);
         }
 
-        return new ModelAndView("system/error", [player: p]);
+        return new ModelAndView("errors/error", [player: p]);
     }
 
     @RequestMapping(method = RequestMethod.GET)

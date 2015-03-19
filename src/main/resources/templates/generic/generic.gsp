@@ -3,7 +3,7 @@
     <meta name="layout" content="main"/>
     <meta name="parent_link" content="/samples"/>
     <meta name="parent_title" content="Samples"/>
-    <title>Generic</title>
+    <title>Bus test</title>
     <sitemesh:parameter name="current" value="generic"/>
 </head>
 

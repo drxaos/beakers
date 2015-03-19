@@ -47,18 +47,25 @@ BUS.once("page.ready", function () {
         },
         error: function (e, params) {
             $('.chat__messageList').append("<p><b>ERROR: " + params.message + "</b></p>");
-        }
+        },
+        ws_idle: !window._chat_enabled
     });
 
     $('.chat__status').click(function () {
         window._chat_ws.refresh();
         $('.chat__user').remove();
     });
+
     $('.chat__send').click(function () {
         var input = $('.chat__newMessage');
         window._chat_ws.send(input.val());
         input.val('');
     });
+
+    if(!window._chat_enabled) {
+        $('.chat__status').attr("disabled", "disabled");
+        $('.chat__messageList').append("<p><b>Login, please.</b></p>");
+    }
 
 });
 

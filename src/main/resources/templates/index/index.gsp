@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Welcome</title>
+    <title>Home</title>
     <sitemesh:parameter name="current" value="home"/>
 
     <script src="/static/js/marked.js"></script>

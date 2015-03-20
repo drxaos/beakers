@@ -1,8 +1,10 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <meta name="parent_link" content="/samples"/>
-    <meta name="parent_title" content="Samples"/>
+    <meta name="parent1_link" content="/"/>
+    <meta name="parent1_title" content="Home"/>
+    <meta name="parent2_link" content="/samples"/>
+    <meta name="parent2_title" content="Samples"/>
     <title>Bus test</title>
     <sitemesh:parameter name="current" value="generic"/>
 </head>

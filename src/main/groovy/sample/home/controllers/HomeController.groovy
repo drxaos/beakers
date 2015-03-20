@@ -16,6 +16,11 @@ public class HomeController extends AbstractMvcController {
     @Autowired
     ApplicationContext applicationContext
 
+    @RequestMapping(value = "/samples", method = RequestMethod.GET)
+    public ModelAndView samples() {
+        return new ModelAndView("index/samples", [:])
+    }
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView home() {
         String readme = applicationContext.getResource("classpath:README.md").inputStream.text

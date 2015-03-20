@@ -54,7 +54,7 @@ public class BeakersCore extends BeakersModule {
     private static Collection<Class<? extends BeakersModule>> resolveDependencies(
             Collection<Class<? extends BeakersModule>> modules, LinkedHashSet<Class> result = null) {
         if (result == null) {
-            result = new LinkedHashSet<>()
+            result = new LinkedHashSet<>([BeakersCore])
         }
         def deps = modules.collect { it?.newInstance()?.dependencies ?: [] }.flatten().unique()
         if (!deps.isEmpty()) {

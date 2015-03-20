@@ -27,7 +27,19 @@
 <script type="text/javascript">
 
     var $content = $('.readme__content');
-    $content.html(marked($content.text()));
+    var $html = $(marked($content.text()));
+    $content.html('');
+    $content.append($html);
+    $content.find("h2").each(function (i, e) {
+        var $h = $(e);
+        var $c = $h.nextUntil('h2');
+        $h.css("cursor", "pointer");
+        $h.prepend($('<i class="mdi-hardware-keyboard-arrow-right"></i>'));
+        $c.hide();
+        $h.click(function () {
+            $c.toggle();
+        });
+    });
 
 </script>
 </body>

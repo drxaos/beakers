@@ -1,6 +1,7 @@
 package beakers.system
 
 import beakers.system.config.ApplicationConfig
+import beakers.system.config.BasePackagesConfiguration
 import beakers.system.config.GroovyConfigResource
 import beakers.system.types.BeakersModule
 import groovy.util.logging.Log4j
@@ -14,6 +15,7 @@ import org.springframework.context.ApplicationContext
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.EnableAspectJAutoProxy
+import org.springframework.context.annotation.Import
 
 import java.lang.reflect.Field
 import java.nio.charset.Charset
@@ -21,7 +23,12 @@ import java.nio.charset.Charset
 @Log4j
 @Configuration
 @ComponentScan
-@EnableAutoConfiguration(exclude = [BasicErrorController, LiquibaseAutoConfiguration, ErrorMvcAutoConfiguration])
+@EnableAutoConfiguration(exclude = [
+        BasicErrorController,
+        LiquibaseAutoConfiguration,
+        ErrorMvcAutoConfiguration,
+])
+@Import(BasePackagesConfiguration)
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 public class BeakersCore extends BeakersModule {
 
@@ -75,6 +82,7 @@ public class BeakersCore extends BeakersModule {
                 params << args[i]
             }
         }
+        app.addListeners()
         app.run(args);
     }
 
@@ -98,4 +106,6 @@ public class BeakersCore extends BeakersModule {
     public static String resolveValue(String value) {
         ((ConfigurableBeanFactory) applicationContext.autowireCapableBeanFactory).resolveEmbeddedValue(value)
     }
+
+
 }

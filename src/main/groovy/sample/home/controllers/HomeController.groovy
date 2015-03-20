@@ -1,6 +1,8 @@
 package sample.home.controllers
 
 import beakers.system.controller.AbstractMvcController
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.ApplicationContext
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
@@ -11,9 +13,12 @@ import org.springframework.web.servlet.ModelAndView
 @PreAuthorize("isAnonymous() or isAuthenticated()")
 public class HomeController extends AbstractMvcController {
 
+    @Autowired
+    ApplicationContext applicationContext
+
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView home() {
-        String readme = 'https://raw.githubusercontent.com/drxaos/beakers/master/README.md'.toURL().text
+        String readme = applicationContext.getResource("classpath:README.md").inputStream.text
         return new ModelAndView("index/index", [readme: readme])
     }
 

@@ -107,6 +107,8 @@ dependencies {
     compile 'joda-time:joda-time:2.7'
 
     compile('org.subethamail:subethasmtp:3.1.7')
+
+    compile 'org.apache.commons:commons-collections4:4.0'
 }
 
 run {
@@ -131,4 +133,11 @@ clean {
     delete "target"
     delete "build"
     delete "classes"
+}
+
+build {
+    copy {
+        from 'README.md'
+        into 'build/classes/main'
+    }
 }

@@ -14,6 +14,6 @@ public class MaintenanceJob extends AbstractJob {
 
     @Scheduled(cron = '${cron.cleaner:0 0 0 * * *}')
     public void execute() {
-        run { exampleService.executeJob() }
+        job { exampleService.executeJob() }
     }
 }

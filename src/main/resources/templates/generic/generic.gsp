@@ -28,23 +28,23 @@
 <script>
     BUS.ws("/bus/ws", {
                 open: function (e, params) {
-                    $(".log").append("<p>### Connected ###</p>");
+                    $(".log").append("<p>### Connected ###<br/><i><b>" + params.wsEventType + "</b></i></p>");
                 },
                 close: function (e, params) {
-                    $(".log").append("<p>### Closed ###</p>");
+                    $(".log").append("<p>### Closed ###<br/><i><b>" + params.wsEventType + "</b></i></p>");
                 },
                 message: function (e, params) {
                     var data = $.parseJSON(params.data);
-                    $(".log").append("<p>" + data.payload + "</p>");
+                    $(".log").append("<p>" + data.payload + "<br/><i><b>" + params.wsEventType + "</b>: " + params.data + "</i></p>");
                 },
                 error: function (e, params) {
-                    $(".log").append("<p>ERROR: " + params.message + "</p>");
+                    $(".log").append("<p>ERROR: " + params.message + "<br/><i><b>" + params.wsEventType + "</b></i></p>");
                 }
             }
     );
     $('.log__clean').click(function () {
         $('.log').html('<p><b>Bus log:</b></p>');
-        BUS.trigger("page.alert", {alert: "info", message: "Log truncated"});
+        BUS.trigger("alert", {alert: "info", message: "Log truncated"});
     });
 </script>
 </body>

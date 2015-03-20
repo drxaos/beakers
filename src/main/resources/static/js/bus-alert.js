@@ -1,6 +1,6 @@
 
 /*
-    BUS.trigger("page.alert", {
+    BUS.trigger("alert", {
         alert: "error", // error, warning, info, success, none
         message: "Message HTML",
         reload: true, // reload page and show alert
@@ -10,7 +10,7 @@
         ]
     });
 */
-BUS.on("page.alert", function (event, data) {
+BUS.on("alert", function (event, data) {
 
     if (data.reload == true) {
         data.reload = false;
@@ -176,6 +176,6 @@ $(document).ready(function () {
     var pageAlertData = $.jStorage.get("page.alert.data");
     if (pageAlertData && $.jStorage.get("page.alert.url") == document.URL) {
         $.jStorage.set("page.alert.url", "");
-        BUS.trigger("page.alert", pageAlertData);
+        BUS.trigger("alert", pageAlertData);
     }
 });

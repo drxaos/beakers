@@ -36,7 +36,7 @@ abstract public class AbstractJob {
         return lastEnd
     }
 
-    public void run(Closure job) {
+    public void job(Closure job) {
         if (disabled) {
             return
         }

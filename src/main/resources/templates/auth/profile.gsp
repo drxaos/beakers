@@ -55,7 +55,7 @@
     <script type="text/javascript">
 
         $('.form-profile').ajaxForm(function (answer) {
-            BUS.trigger("page.alert", answer);
+            BUS.trigger("alert", answer);
         });
     </script>
 </div>

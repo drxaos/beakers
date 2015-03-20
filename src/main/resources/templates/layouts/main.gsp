@@ -54,13 +54,23 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <g:render template="index/navbar-home"/>
-                    <g:render template="auth/navbar-profile"/>
-                    <g:render template="samples/navbar-menu"/>
-                    <g:render template="admin/navbar-menu"/>
+                    <g:render template="index/navbar-item-home"/>
+
+                    <g:render template="samples/navbar-dropdown">
+                        <g:render template="generic/navbar-item-generic"/>
+                        <g:render template="guestbook/navbar-item-guestbook"/>
+                        <g:render template="chat/navbar-item-chat"/>
+                    </g:render>
+
+                    <g:render template="admin/navbar-dropdown">
+                        <g:render template="admin/navbar-item-jobs"/>
+                        <g:render template="admin/navbar-item-users"/>
+                    </g:render>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <g:render template="auth/navbar-login"/>
+                    <g:render template="auth/navbar-item-username"/>
+                    <g:render template="auth/navbar-item-profile"/>
+                    <g:render template="auth/navbar-item-login"/>
                 </ul>
             </div>
 
@@ -83,7 +93,7 @@
 </div>
 
 <script>
-    $(document).ready(function () {
+    BUS.once("ready", function () {
         $.material.init();
     });
 </script>

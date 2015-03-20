@@ -35,7 +35,7 @@ BUS.ws = function (path, handler) {
     wsLocation += path;
 
     var socket = new ReconnectingWebSocket(wsLocation, null, {
-        debug: false,
+        debug: (window._ws_debug == true),
         reconnectInterval: 1000,
         reconnectDecay: 2,
         maxReconnectInterval: 8000,

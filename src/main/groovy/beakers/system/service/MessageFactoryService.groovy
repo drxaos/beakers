@@ -21,7 +21,7 @@ public class MessageFactoryService {
     MessageSource messageSource
 
     private static normalizeMessage(def msg) {
-        msg?.toString()?.toLowerCase()?.replaceAll("[.,-_+=!?;:)('\"]", " ")?.trim()?.replaceAll("\\s+", "-")?.replaceAll("[^a-z0-9_-]", "")?.replaceAll("[-]+", "-")?.replaceAll("^-\$", "") ?: "undefined"
+        msg?.toString()?.toLowerCase()?.replaceAll("[-_+=!?;:.,)('\"]", " ")?.trim()?.replaceAll("\\s+", "-")?.replaceAll("[^a-z0-9_-]", "")?.replaceAll("[-]+", "-")?.replaceAll("^-\$", "") ?: "undefined"
     }
 
     private static List getCodes(String path, String type, value) {

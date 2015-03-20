@@ -51,7 +51,7 @@
     <script type="text/javascript">
 
         $('.form-signup').ajaxForm(function (answer) {
-            BUS.trigger("page.alert", answer);
+            BUS.trigger("alert", answer);
             if (answer.data && answer.data.redirect) {
                 window.location = answer.data.redirect;
             }

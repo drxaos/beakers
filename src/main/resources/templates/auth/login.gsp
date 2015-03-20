@@ -38,7 +38,7 @@
 <script>
     var error = ${error};
     if (error == 1) {
-        BUS.trigger("page.alert", {alert: "error", message: "Wrong credentials"})
+        BUS.trigger("alert", {alert: "error", message: "Wrong credentials"})
     }
 </script>
 </body>

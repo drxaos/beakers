@@ -7,7 +7,7 @@ Date.prototype.timeNow = function () {
     return ((this.getHours() < 10) ? "0" : "") + this.getHours() + ":" + ((this.getMinutes() < 10) ? "0" : "") + this.getMinutes() + ":" + ((this.getSeconds() < 10) ? "0" : "") + this.getSeconds();
 };
 
-BUS.once("page.ready", function () {
+BUS.once("ready", function () {
 
     window._chat_ws = BUS.ws("/chat/ws", {
         open: function (e, params) {

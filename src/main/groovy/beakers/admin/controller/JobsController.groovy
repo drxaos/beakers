@@ -20,22 +20,26 @@ class JobsController extends AbstractMvcController {
 
     @RequestMapping(value = "/admin/jobs/list", method = RequestMethod.GET)
     public ModelAndView listJobs() {
-        return new ModelAndView("/admin/jobs", [jobs: jobManager.jobs, tasks: jobManager.tasks])
+        return new ModelAndView("/admin/jobs", [tasks: jobManager.tasks])
     }
 
     @RequestMapping(value = "/admin/jobs/exec", method = RequestMethod.POST)
     @ResponseBody
     public ActionAnswer exec(String id) {
         action {
-            def job = jobManager.jobs.find { it.fullName == id }
-            def task = jobManager.tasks.find { it.fullName == id }
-            if (job) {
-                job.runnable.run()
-                return success("job-executed")
-            } else if (task) {
-                task.runnable.run()
-                return success("task-executed")
-            } else {
+            def result = jobManager.execute(id)
+            if (!result) {
+                return error("not-found")
+            }
+        }
+    }
+
+    @RequestMapping(value = "/admin/jobs/enable", method = RequestMethod.POST)
+    @ResponseBody
+    public ActionAnswer enable(String id, boolean enable) {
+        action {
+            def result = jobManager.setEnabled(id, enable)
+            if (!result) {
                 return error("not-found")
             }
         }

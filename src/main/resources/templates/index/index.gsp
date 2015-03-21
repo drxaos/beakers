@@ -4,7 +4,7 @@
     <title>Home</title>
     <sitemesh:parameter name="current" value="home"/>
 
-    <script src="/static/js/marked.js"></script>
+    <script src="/static/thirdparty/marked/js/marked.js"></script>
 
 </head>
 

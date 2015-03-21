@@ -15,37 +15,43 @@ class DelegatingScheduler implements TaskScheduler {
 
     @Override
     public ScheduledFuture<?> schedule(Runnable task, Trigger trigger) {
-        jobManager?.addCron(task, trigger)
-        return scheduler?.schedule(task, trigger)
+        def managed = new ManagedScheduledMethodRunnable(task)
+        jobManager?.addCron(managed, trigger)
+        return scheduler?.schedule(managed, trigger)
     }
 
     @Override
     public ScheduledFuture<?> schedule(Runnable task, Date startTime) {
-        jobManager?.addOnce(task, startTime)
-        return scheduler?.schedule(task, startTime)
+        def managed = new ManagedScheduledMethodRunnable(task)
+        jobManager?.addOnce(managed, startTime)
+        return scheduler?.schedule(managed, startTime)
     }
 
     @Override
     public ScheduledFuture<?> scheduleAtFixedRate(Runnable task, Date startTime, long period) {
-        jobManager?.addRate(task, startTime, period)
-        return scheduler?.scheduleAtFixedRate(task, startTime, period)
+        def managed = new ManagedScheduledMethodRunnable(task)
+        jobManager?.addRate(managed, startTime, period)
+        return scheduler?.scheduleAtFixedRate(managed, startTime, period)
     }
 
     @Override
     public ScheduledFuture<?> scheduleAtFixedRate(Runnable task, long period) {
-        jobManager?.addRate(task, new Date(), period)
-        return scheduler?.scheduleAtFixedRate(task, period)
+        def managed = new ManagedScheduledMethodRunnable(task)
+        jobManager?.addRate(managed, new Date(), period)
+        return scheduler?.scheduleAtFixedRate(managed, period)
     }
 
     @Override
     public ScheduledFuture<?> scheduleWithFixedDelay(Runnable task, Date startTime, long delay) {
-        jobManager?.addDelay(task, startTime, delay)
-        return scheduler?.scheduleWithFixedDelay(task, startTime, delay)
+        def managed = new ManagedScheduledMethodRunnable(task)
+        jobManager?.addDelay(managed, startTime, delay)
+        return scheduler?.scheduleWithFixedDelay(managed, startTime, delay)
     }
 
     @Override
     public ScheduledFuture<?> scheduleWithFixedDelay(Runnable task, long delay) {
-        jobManager?.addDelay(task, new Date(), delay)
-        return scheduler?.scheduleWithFixedDelay(task, delay)
+        def managed = new ManagedScheduledMethodRunnable(task)
+        jobManager?.addDelay(managed, new Date(), delay)
+        return scheduler?.scheduleWithFixedDelay(managed, delay)
     }
 }

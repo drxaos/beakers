@@ -23,29 +23,6 @@
             <th class="">Cron</th>
             <th class=""></th>
         </tr>
-        <g:each in="${jobs}" var="job">
-            <tr class="${job.inProgress ? "info" : ""}">
-                <td class="" title="${job.fullName}">
-                    ${job.name}<br/>
-                    <i>${job.description}</i>
-                </td>
-                <td class="">job</td>
-                <td class="">${job.inProgress ? "RUNNING" : "IDLE"}</td>
-                <td class="active"></td>
-                <td class="">${job.lastStart ?: "None"}</td>
-                <td class="">${job.lastEnd ?: "None"}</td>
-                <td class="">${job.nextRun}</td>
-                <td class="">${job.expression}</td>
-                <td class="">
-                    <button class="btn btn-success jobs__run"
-                            data-loading-text="<i class='mdi-action-schedule'></i>"
-                            data-id="${job.fullName}"
-                            style="padding: 0; width: 30px; height: 30px">
-                        <i class="mdi-av-play-arrow"></i>
-                    </button>
-                </td>
-            </tr>
-        </g:each>
         <g:each in="${tasks}" var="task">
             <tr class="">
                 <td class="" title="${task.fullName}">
@@ -53,13 +30,21 @@
                     <i>${task.description}</i>
                 </td>
                 <td class="">${task.type}</td>
-                <td class="active"></td>
+                <td class="">${task.inProgress ? "RUNNING" : "IDLE"}</td>
                 <td class="">${task.period}</td>
-                <td class="active"></td>
-                <td class="active"></td>
+                <td class="">${task.lastStart ?: "None"}</td>
+                <td class="">${task.lastEnd ?: "None"}</td>
                 <td class="${task.type == "cron" ? "" : "active"}">${task.nextRun}</td>
                 <td class="${task.type == "cron" ? "" : "active"}">${task.expression}</td>
                 <td class="">
+                    <span class="togglebutton togglebutton-material-amber">
+                        <label>
+                            <input class="jobs__enable"
+                                   data-id="${task.fullName}"
+                                   type="checkbox"
+                                ${task.enabled ? "checked=checked" : ""}>
+                        </label>
+                    </span>
                     <button class="btn btn-success jobs__run"
                             data-loading-text="<i class='mdi-action-schedule'></i>"
                             data-id="${task.fullName}"
@@ -78,6 +63,14 @@
         $.post("/admin/jobs/exec", {id: $(this).attr("data-id")}, function (answer) {
             BUS.trigger("alert", answer);
             $btn.button('reset');
+        });
+    });
+    $('.jobs__enable').change(function (e) {
+        $.post("/admin/jobs/enable", {
+            id: $(this).attr("data-id"),
+            enable: $(this).prop('checked') ? "true" : "false"
+        }, function (answer) {
+            BUS.trigger("alert", answer);
         });
     });
 </script>

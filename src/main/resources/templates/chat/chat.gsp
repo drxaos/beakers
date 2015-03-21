@@ -16,7 +16,41 @@
 <body>
 
 <div class="row ">
-    <div class="col-md-8">
+    <div class="col-md-3">
+        <h2>Sources</h2>
+        <a href="https://github.com/drxaos/beakers/blob/master/src/main/groovy/sample/chat/ChatSampleModule.groovy">
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            ChatSampleModule.groovy
+        </a>
+        <br/>
+        <a href="https://github.com/drxaos/beakers/blob/master/src/main/groovy/sample/chat/controller/ChatController.groovy">
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            ChatController.groovy
+        </a>
+        <br/>
+        <a href="https://github.com/drxaos/beakers/blob/master/src/main/groovy/sample/chat/websocket/ChatEndpoint.groovy">
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            ChatEndpoint.groovy
+        </a>
+        <br/>
+        <a href="https://github.com/drxaos/beakers/blob/master/src/main/resources/templates/chat/chat.gsp">
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            chat.gsp
+        </a>
+        <br/>
+        <a href="https://github.com/drxaos/beakers/blob/master/src/main/resources/static/js/chat.js">
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            chat.js
+        </a>
+        <br/>
+        <a href="https://github.com/drxaos/beakers/blob/master/src/main/resources/static/css/chat.css">
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            chat.css
+        </a>
+        <br/>
+    </div>
+
+    <div class="col-md-6">
         <div class="panel panel-default chat__historyPanel">
             <div class="panel-heading">
                 RECENT CHAT HISTORY
@@ -63,7 +97,7 @@
         </div>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="panel panel-default chat__usersPanel">
             <div class="panel-heading">
                 ONLINE USERS
@@ -109,7 +143,7 @@
     window._chat_enabled = true;
     </sec:ifExpression>
     <sec:ifNotExpression value="isAuthenticated()">
-    window._chat_enabled = false;
+    window._chat_enabled = false; // disable if not logged in
     </sec:ifNotExpression>
 </script>
 </body>

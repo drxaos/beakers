@@ -10,11 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     %{--CSS--}%
-    <link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/static/css/ripples.min.css">
-    <link rel="stylesheet" href="/static/css/material-wfont.min.css">
-    <link rel="stylesheet" href="/static/css/octicons.css">
+    <link rel="stylesheet" href="/static/thirdparty/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/static/thirdparty/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/thirdparty/material/css/ripples.min.css">
+    <link rel="stylesheet" href="/static/thirdparty/material/css/material-fullpalette.min.css">
+    <link rel="stylesheet" href="/static/thirdparty/octicons/css/octicons.css">
     <link rel="stylesheet" href="/static/css/beakers.css"/>
 
     %{--FAVICON--}%
@@ -22,22 +22,22 @@
     <link rel="icon" type="image/png" href="/static/favicon.png"/>
 
     %{--JS--}%
-    <script src="/static/js/json2.min.js"></script>
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/jquery-ui.min.js"></script>
-    <script src="/static/js/jquery.form.min.js"></script>
-    <script src="/static/js/jstorage.js"></script>
-    <script src="/static/js/bootstrap.min.js"></script>
-    <script src="/static/js/ripples.min.js"></script>
-    <script src="/static/js/material.min.js"></script>
-    <script src="/static/js/reconnecting-websocket.min.js"></script>
+    <script src="/static/thirdparty/jquery/js/json2.min.js"></script>
+    <script src="/static/thirdparty/jquery/js/jquery.min.js"></script>
+    <script src="/static/thirdparty/jquery/js/jquery-ui.min.js"></script>
+    <script src="/static/thirdparty/jquery/js/jquery.form.min.js"></script>
+    <script src="/static/thirdparty/jquery/js/jstorage.js"></script>
+    <script src="/static/thirdparty/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/thirdparty/material/js/ripples.min.js"></script>
+    <script src="/static/thirdparty/material/js/material.min.js"></script>
+    <script src="/static/thirdparty/reconnecting-websocket/js/reconnecting-websocket.min.js"></script>
     <script src="/static/js/bus.js"></script>
     <script src="/static/js/bus-alert.js"></script>
     <script src="/static/js/bus-ws.js"></script>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="/static/js/html5shiv.min.js"></script>
+      <script src="/static/thirdparty/html5shiv/js/html5shiv.min.js"></script>
     <![endif]-->
 
     <g:layoutHead/>

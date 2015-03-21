@@ -9,14 +9,14 @@ mail.from = "admin@${app.host}"
 
 environments {
     dev {
-//        datasource.username = "sa"
-//        datasource.password = "sa"
-//        datasource.url = "jdbc:h2:file:~/beakers;MODE=MySQL"
-//        datasource.driver = "org.h2.Driver"
-        datasource.username = "root"
-        datasource.password = "root"
-        datasource.url = "jdbc:mysql://localhost/beakers"
-        datasource.driver = "com.mysql.jdbc.Driver"
+        datasource.username = "sa"
+        datasource.password = "sa"
+        datasource.url = "jdbc:h2:file:~/beakers;MODE=MySQL"
+        datasource.driver = "org.h2.Driver"
+//        datasource.username = "root"
+//        datasource.password = "root"
+//        datasource.url = "jdbc:mysql://localhost/beakers"
+//        datasource.driver = "com.mysql.jdbc.Driver"
 
 //        scheduler.enable = true
     }

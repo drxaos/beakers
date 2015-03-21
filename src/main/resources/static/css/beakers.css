@@ -8,20 +8,6 @@ body {
     font-weight: 300;
 }
 
-.layout__container {
-    max-width: 1200px;
-    padding: 0px 15px;
-}
-
-input[type="number"] {
-    -moz-appearance: textfield;
-}
-
-.form-control[readonly] {
-    cursor: default !important;
-    opacity: 1 !important;
-}
-
 .ellipsis {
     white-space: nowrap;
     overflow: hidden;
@@ -56,6 +42,7 @@ body {
     font-size: small;
 }
 
+/* shadows */
 .shadow-z-1, .z-1 {
     z-index: 100;
 }

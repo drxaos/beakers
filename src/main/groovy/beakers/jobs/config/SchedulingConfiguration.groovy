@@ -2,7 +2,6 @@ package beakers.jobs.config
 
 import beakers.jobs.job.JobManager
 import beakers.jobs.utils.DelegatingScheduler
-import grails.util.Holders
 import groovy.util.logging.Log4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.ApplicationContext
@@ -12,7 +11,6 @@ import org.springframework.context.annotation.Profile
 import org.springframework.scheduling.annotation.EnableScheduling
 import org.springframework.scheduling.annotation.SchedulingConfigurer
 import org.springframework.scheduling.concurrent.ConcurrentTaskScheduler
-import org.springframework.scheduling.concurrent.DefaultManagedTaskScheduler
 import org.springframework.scheduling.config.ScheduledTaskRegistrar
 
 import java.util.concurrent.Executor
@@ -32,22 +30,10 @@ class SchedulingConfiguration implements SchedulingConfigurer {
 
     @Override
     public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {
-        def prod = applicationContext.environment.acceptsProfiles("prod")
-
-        if (prod) {
-            log.info("Setting up thread pool for job scheduling")
-            def scheduler = new ConcurrentTaskScheduler(((ScheduledExecutorService) taskExecutor()))
-            taskRegistrar.setScheduler(new DelegatingScheduler(scheduler: scheduler, jobManager: jobManger()));
-        } else if (Holders.config.scheduler.enable) {
-            log.info("Setting up default manager for job scheduling")
-            taskRegistrar.setScheduler(new DelegatingScheduler(scheduler: new DefaultManagedTaskScheduler(), jobManager: jobManger()));
-        } else {
-            log.info("Setting up disabled job scheduling")
-            taskRegistrar.setScheduler(new DelegatingScheduler(jobManager: jobManger()));
-        }
+        def scheduler = new ConcurrentTaskScheduler(((ScheduledExecutorService) taskExecutor()))
+        taskRegistrar.setScheduler(new DelegatingScheduler(scheduler: scheduler, jobManager: jobManger()));
     }
 
-    @Profile("prod")
     @Bean(destroyMethod = "shutdown")
     public Executor taskExecutor() {
         return Executors.newScheduledThreadPool(100);

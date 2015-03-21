@@ -6,7 +6,7 @@
     <meta name="parent2_link" content="/samples"/>
     <meta name="parent2_title" content="Samples"/>
     <title>Guestbook</title>
-    <sitemesh:parameter name="current" value="home"/>
+    <sitemesh:parameter name="current" value="guestbook"/>
 </head>
 
 <body>

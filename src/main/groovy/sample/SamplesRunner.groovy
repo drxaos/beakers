@@ -1,7 +1,7 @@
 package sample
 
 import beakers.system.BeakersCore
-import beakers.system.config.GroovyConfigResource
+import beakers.system.utils.config.GroovyConfigResource
 import beakers.system.types.BeakersModule
 import sample.chat.ChatSampleModule
 import sample.generic.GenericSamplesModule

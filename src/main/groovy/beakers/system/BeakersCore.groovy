@@ -2,7 +2,7 @@ package beakers.system
 
 import beakers.system.config.ApplicationConfig
 import beakers.system.config.BasePackagesConfiguration
-import beakers.system.config.GroovyConfigResource
+import beakers.system.utils.config.GroovyConfigResource
 import beakers.system.types.BeakersModule
 import groovy.util.logging.Log4j
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
@@ -44,6 +44,11 @@ public class BeakersCore extends BeakersModule {
             charset.setAccessible(true);
             charset.set(null, null);
         }
+    }
+
+    @Override
+    List<String> getMessagesPaths() {
+        return ["classpath:messages"]
     }
 
     @Override

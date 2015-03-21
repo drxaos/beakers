@@ -1,11 +1,11 @@
-rootProject.name = 'beakers'
 
 springBoot {
     mainClass = "sample.SamplesRunner"
 }
 
-build {
+processResources {
     copy {
+        from 'docs'
         from 'README.md'
         into 'build/classes/main'
     }

@@ -1,4 +1,4 @@
-package beakers.system.utils
+package beakers.system.utils.config
 
 import beakers.system.BeakersCore
 import groovy.util.logging.Log4j

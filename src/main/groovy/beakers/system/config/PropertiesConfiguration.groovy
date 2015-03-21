@@ -1,7 +1,7 @@
 package beakers.system.config
 
 import beakers.system.BeakersCore
-import beakers.system.utils.GroovyPlaceholderConfigurer
+import beakers.system.utils.config.GroovyPlaceholderConfigurer
 import org.codehaus.groovy.grails.commons.DefaultGrailsApplication
 import org.springframework.beans.BeansException
 import org.springframework.context.ApplicationContext

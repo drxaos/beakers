@@ -2,7 +2,7 @@ package beakers.mail
 
 import beakers.mail.config.MailConfig
 import beakers.system.BeakersCore
-import beakers.system.config.GroovyConfigResource
+import beakers.system.utils.config.GroovyConfigResource
 import beakers.system.types.BeakersModule
 import org.springframework.context.annotation.ComponentScan
 

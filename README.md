@@ -21,49 +21,20 @@ You need a Java Development Kit (JDK) installed, but it is not necessary to inst
 
 To customize template you need to modify some config files:
 
-* [/settings.gradle](/settings.gradle) - project settings
-* [/dump.sh](/dump.sh) - script for downloading production db to developer's machine
-* [/src/main/resources/application.properties](/src/main/resources/application.properties) - application name and version
-* [/src/main/resources/application.groovy](/src/main/resources/application.groovy) - application configuration
+* /settings.gradle - project settings
+* /dump.sh - script for downloading production db to developer's machine
+* /src/main/resources/application.properties - application name and version
+* /src/main/resources/application.groovy - application configuration
 * ...
 
-## Application layout
+## Wiki
 
-### Configurations
-### Groovy configs
-### Services
-### Controllers
-### Domains
-### GSP
-### TagLibs
-### Events
-### WebSockets
-### Utils
-### AOP
-### Bootstrap
-### I18n
-### Static resources
-### ...
-
-## Core modules
-
-### Core
-### Mail
-### Jobs
-### Jms?
-### Admin
+* [Components](docs/Components.md)
+* [Modules](docs/Modules.md)
+* [Database](docs/Database.md)
+* [Testing](docs/Testing.md)
 
 ## Running application
 
 ### Samples
 ### Customize
-
-## Database migrations
-
-Liquibase
-
-## Testing
-
-### Integration
-### Web
-

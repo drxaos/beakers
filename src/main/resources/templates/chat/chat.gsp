@@ -48,6 +48,7 @@
             chat.css
         </a>
         <br/>
+        <br/>
     </div>
 
     <div class="col-md-6">

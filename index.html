@@ -1,37 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <title>Beakers by drxaos</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <title>Beakers by drxaos</title>
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Beakers</h1>
+        <p class="header">Web application template based on Spring and Groovy.</p>
 
-        <header>
-          <h1>Beakers</h1>
-          <h2>Web application template based on Spring and Groovy.</h2>
-        </header>
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/drxaos/beakers/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/drxaos/beakers/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/drxaos/beakers">View On GitHub</a></li>
+        </ul>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/drxaos/beakers/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/drxaos/beakers/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/drxaos/beakers" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/drxaos">drxaos</a></p>
 
-        <hr>
 
-        <section id="main_content">
-          <p><a href="https://travis-ci.org/drxaos/beakers"><img src="https://travis-ci.org/drxaos/beakers.svg?branch=master" alt="Build Status"></a></p>
+      </header>
+      <section>
+        <p><a href="https://travis-ci.org/drxaos/beakers"><img src="https://travis-ci.org/drxaos/beakers.svg?branch=master" alt="Build Status"></a></p>
 
 <h1>
 <a id="beakers" class="anchor" href="#beakers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Beakers</h1>
@@ -59,79 +58,22 @@
 <p>To customize template you need to modify some config files:</p>
 
 <ul>
-<li>
-<a href="/settings.gradle">/settings.gradle</a> - project settings</li>
-<li>
-<a href="/dump.sh">/dump.sh</a> - script for downloading production db to developer's machine</li>
-<li>
-<a href="/src/main/resources/application.properties">/src/main/resources/application.properties</a> - application name and version</li>
-<li>
-<a href="/src/main/resources/application.groovy">/src/main/resources/application.groovy</a> - application configuration</li>
+<li>/settings.gradle - project settings</li>
+<li>/dump.sh - script for downloading production db to developer's machine</li>
+<li>/src/main/resources/application.properties - application name and version</li>
+<li>/src/main/resources/application.groovy - application configuration</li>
 <li>...</li>
 </ul>
 
 <h2>
-<a id="application-layout" class="anchor" href="#application-layout" aria-hidden="true"><span class="octicon octicon-link"></span></a>Application layout</h2>
+<a id="wiki" class="anchor" href="#wiki" aria-hidden="true"><span class="octicon octicon-link"></span></a>Wiki</h2>
 
-<h3>
-<a id="configurations" class="anchor" href="#configurations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configurations</h3>
-
-<h3>
-<a id="groovy-configs" class="anchor" href="#groovy-configs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Groovy configs</h3>
-
-<h3>
-<a id="services" class="anchor" href="#services" aria-hidden="true"><span class="octicon octicon-link"></span></a>Services</h3>
-
-<h3>
-<a id="controllers" class="anchor" href="#controllers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Controllers</h3>
-
-<h3>
-<a id="domains" class="anchor" href="#domains" aria-hidden="true"><span class="octicon octicon-link"></span></a>Domains</h3>
-
-<h3>
-<a id="gsp" class="anchor" href="#gsp" aria-hidden="true"><span class="octicon octicon-link"></span></a>GSP</h3>
-
-<h3>
-<a id="taglibs" class="anchor" href="#taglibs" aria-hidden="true"><span class="octicon octicon-link"></span></a>TagLibs</h3>
-
-<h3>
-<a id="events" class="anchor" href="#events" aria-hidden="true"><span class="octicon octicon-link"></span></a>Events</h3>
-
-<h3>
-<a id="utils" class="anchor" href="#utils" aria-hidden="true"><span class="octicon octicon-link"></span></a>Utils</h3>
-
-<h3>
-<a id="aop" class="anchor" href="#aop" aria-hidden="true"><span class="octicon octicon-link"></span></a>AOP</h3>
-
-<h3>
-<a id="bootstrap" class="anchor" href="#bootstrap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bootstrap</h3>
-
-<h3>
-<a id="i18n" class="anchor" href="#i18n" aria-hidden="true"><span class="octicon octicon-link"></span></a>I18n</h3>
-
-<h3>
-<a id="static-resources" class="anchor" href="#static-resources" aria-hidden="true"><span class="octicon octicon-link"></span></a>Static resources</h3>
-
-<h3>
-<a id="" class="anchor" href="#" aria-hidden="true"><span class="octicon octicon-link"></span></a>...</h3>
-
-<h2>
-<a id="core-modules" class="anchor" href="#core-modules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core modules</h2>
-
-<h3>
-<a id="core" class="anchor" href="#core" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core</h3>
-
-<h3>
-<a id="mail" class="anchor" href="#mail" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mail</h3>
-
-<h3>
-<a id="jobs" class="anchor" href="#jobs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jobs</h3>
-
-<h3>
-<a id="jms" class="anchor" href="#jms" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jms?</h3>
-
-<h3>
-<a id="admin" class="anchor" href="#admin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Admin</h3>
+<ul>
+<li><a href="docs/Components.md">Components</a></li>
+<li><a href="docs/Modules.md">Modules</a></li>
+<li><a href="docs/Database.md">Database</a></li>
+<li><a href="docs/Testing.md">Testing</a></li>
+</ul>
 
 <h2>
 <a id="running-application" class="anchor" href="#running-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running application</h2>
@@ -141,29 +83,12 @@
 
 <h3>
 <a id="customize" class="anchor" href="#customize" aria-hidden="true"><span class="octicon octicon-link"></span></a>Customize</h3>
-
-<h2>
-<a id="database-migrations" class="anchor" href="#database-migrations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database migrations</h2>
-
-<p>Liquibase</p>
-
-<h2>
-<a id="testing" class="anchor" href="#testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Testing</h2>
-
-<h3>
-<a id="integration" class="anchor" href="#integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Integration</h3>
-
-<h3>
-<a id="web" class="anchor" href="#web" aria-hidden="true"><span class="octicon octicon-link"></span></a>Web</h3>
-        </section>
-
-        <footer>
-          Beakers is maintained by <a href="https://github.com/drxaos">drxaos</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
     </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
   </body>
 </html>

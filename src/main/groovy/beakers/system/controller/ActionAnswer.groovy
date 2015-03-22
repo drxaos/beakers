@@ -11,6 +11,8 @@ class ActionAnswer {
     String alert = "none"
     def code = ""
 
+    boolean reload = false
+
     String message = ""
     List fields = []
 
@@ -19,6 +21,20 @@ class ActionAnswer {
     def leftShift(FieldError fieldError) {
         this.fields.removeAll { it.name == fieldError.name }
         this.fields << fieldError
+        return this
+    }
+
+    def plus(String action) {
+        if (action == AbstractMvcController.RELOAD) {
+            this.reload = true
+        }
+        return this
+    }
+
+    def minus(String action) {
+        if (action == AbstractMvcController.RELOAD) {
+            this.reload = false
+        }
         return this
     }
 

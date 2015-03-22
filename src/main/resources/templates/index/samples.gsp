@@ -16,7 +16,14 @@
 
         <div class="well modules__list" style="min-height: 400px">
 
-
+            <dl class="dl-horizontal">
+                <dt><a href="/generic">Bus test</a></dt>
+                <dd>Client logging events produced by scheduled task on server</dd>
+                <dt><a href="/guestbook">Guest Book</a></dt>
+                <dd>Simple guestbook (not yet implemented)</dd>
+                <dt><a href="/chat">Chat</a></dt>
+                <dd>WebSocket chat</dd>
+            </dl>
 
         </div>
 

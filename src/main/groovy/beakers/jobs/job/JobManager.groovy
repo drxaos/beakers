@@ -25,10 +25,6 @@ class JobManager {
             return runnable.enabled
         }
 
-        void setEnabled(boolean enabled) {
-            runnable.enabled = enabled
-        }
-
         def getName() {
             return runnable.method.declaringClass.simpleName + "." + runnable.method.name
         }

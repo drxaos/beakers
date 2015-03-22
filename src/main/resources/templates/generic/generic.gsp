@@ -12,9 +12,42 @@
 <body>
 
 <div class="row">
-    <div class="col-md-1"></div>
+    <div class="col-md-3">
+        <h2>Sources</h2>
+        <a href="https://github.com/drxaos/beakers/blob/master/src/main/groovy/sample/generic/GenericSamplesModule.groovy">
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            GenericSamplesModule.groovy
+        </a>
+        <br/>
+        <a href="https://github.com/drxaos/beakers/blob/master/src/main/groovy/sample/generic/controller/SampleController.groovy">
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            SampleController.groovy
+        </a>
+        <br/>
+        <a href="https://github.com/drxaos/beakers/blob/master/src/main/groovy/sample/generic/events/AnonymousEvent.groovy">
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            AnonymousEvent.groovy
+        </a>
+        <br/>
+        <a href="https://github.com/drxaos/beakers/blob/master/src/main/groovy/sample/generic/events/SampleEvent.groovy">
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            SampleEvent.groovy
+        </a>
+        <br/>
+        <a href="https://github.com/drxaos/beakers/blob/master/src/main/groovy/sample/generic/jobs/Tasks.groovy">
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            Tasks.groovy
+        </a>
+        <br/>
+        <a href="https://github.com/drxaos/beakers/blob/master/src/main/resources/templates/generic/generic.gsp">
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+            generic.gsp
+        </a>
+        <br/>
+        <br/>
+    </div>
 
-    <div class="col-md-10">
+    <div class="col-md-9">
 
         <button class="btn btn-primary pull-right log__clean" style="margin-right: 10px">Clean</button>
 
@@ -24,7 +57,6 @@
 
     </div>
 
-    <div class="col-md-1"></div>
 </div>
 
 <script>

@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired
 @Log4j
 abstract class AbstractMvcController {
 
+    public static final String RELOAD = "reload"
+
     @Autowired
     MessageFactoryService messageFactoryService
 

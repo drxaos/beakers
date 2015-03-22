@@ -13,3 +13,5 @@ config
 ## Database migrations
 
 Liquibase
+
+changelog.xml

@@ -6,6 +6,8 @@ import beakers.system.domain.auth.RoleGroup
 import beakers.system.domain.auth.User
 import beakers.system.errors.domain.UniqueConstraintException
 import beakers.system.errors.domain.auth.EmailAlreadyExists
+import beakers.system.errors.domain.auth.RoleGroupNotExists
+import beakers.system.errors.domain.auth.UserNotExists
 import beakers.system.errors.domain.auth.UsernameAlreadyExists
 import beakers.system.events.EventBus
 import beakers.system.events.auth.SignUpEvent
@@ -37,6 +39,38 @@ public class UserService {
             group = createRoleGroup(roleGroup, ["ROLE_USER"])
         }
         User user = new User(username: username, email: email, password: password, fullName: fullName, roleGroup: group)
+        user.save(flush: true, failOnError: true)
+
+        return user
+    }
+
+    @Transactional
+    @OnUpdateDatabase
+    public User setPassword(String username, String password) {
+        def user = User.findByUsername(username)
+        if (!user) {
+            throw new UserNotExists(username)
+        }
+
+        user.setPassword(password)
+        user.save(flush: true, failOnError: true)
+
+        return user
+    }
+
+    @Transactional
+    @OnUpdateDatabase
+    public User setRoleGroup(String username, String group) {
+        def user = User.findByUsername(username)
+        if (!user) {
+            throw new UserNotExists(username)
+        }
+        def rg = RoleGroup.findByName(group)
+        if (!rg) {
+            throw new RoleGroupNotExists(group)
+        }
+
+        user.setRoleGroup(rg)
         user.save(flush: true, failOnError: true)
 
         return user

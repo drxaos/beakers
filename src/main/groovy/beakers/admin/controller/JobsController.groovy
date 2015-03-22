@@ -40,8 +40,11 @@ class JobsController extends AbstractMvcController {
         action {
             def result = jobManager.setEnabled(id, enable)
             if (!result) {
-                return error("not-found")
+                return error("not-found") + RELOAD
             }
+        }
+        on(Exception) { e ->
+            return error(e) + RELOAD
         }
     }
 

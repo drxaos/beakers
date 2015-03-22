@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional
 class GuestBookService {
 
     @Transactional
-    def executeJob() {
+    def list() {
 
     }
 }

@@ -1,13 +1,15 @@
 package sample.guestbook.jobs
 
+import beakers.system.errors.domain.ServiceException
 import beakers.system.service.auth.UserService
+import groovy.util.logging.Log4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Description
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
-import sample.guestbook.services.GuestBookService
 
+@Log4j
 @Service
 public class RevertJob {
 
@@ -18,10 +20,44 @@ public class RevertJob {
     @Transactional
     @Description("Reverts database to clean state")
     public void execute() {
-        userService.setPassword("admin", "admin")
-        userService.setRoleGroup("admin", "admin")
-        userService.setPassword("user", "user")
-        userService.setRoleGroup("user", "user")
+        try {
+            userService.createUser("admin", "admin", "admin@example.com", "Admin", "admin")
+        } catch (ServiceException e) {
+            log.info(e)
+        }
+        try {
+            userService.setPassword("admin", "admin")
+        } catch (Exception e) {
+            log.error(null, e)
+        }
+        try {
+            userService.createRoleGroup("admin", ["ROLE_USER", "ROLE_ADMIN"])
+        } catch (Exception ignore) {
+        }
+        try {
+            userService.setRoleGroup("admin", "admin")
+        } catch (Exception e) {
+            log.error(null, e)
+        }
+        try {
+            userService.createUser("user", "user", "user@example.com", "User for test")
+        } catch (ServiceException e) {
+            log.info(e)
+        }
+        try {
+            userService.setPassword("user", "user")
+        } catch (Exception e) {
+            log.error(null, e)
+        }
+        try {
+            userService.createRoleGroup("user", ["ROLE_USER"])
+        } catch (Exception ignore) {
+        }
+        try {
+            userService.setRoleGroup("user", "user")
+        } catch (Exception e) {
+            log.error(null, e)
+        }
 
         // TODO remove other users
         // TODO remove guestbook history

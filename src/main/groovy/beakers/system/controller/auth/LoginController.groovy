@@ -64,6 +64,6 @@ class SignupParams {
         username nullable: false, blank: false
         password nullable: false, blank: false
         fullName nullable: false, blank: false
-        email nullable: false, blank: false
+        email nullable: false, blank: false, email: true
     }
 }

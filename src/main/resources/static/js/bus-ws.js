@@ -58,7 +58,7 @@ BUS.ws = function (path, handler) {
     };
 
     socket.onerror = function (error) {
-        var data = [{wsEventType: "ws_error", wsEvent: event, message: error.message}];
+        var data = [{wsEventType: "ws_error", wsEvent: error, message: error.message}];
         $(document).trigger("ws_error" + namespace, data);
     };
 

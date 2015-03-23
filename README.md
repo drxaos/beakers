@@ -20,9 +20,9 @@ Beakers
 ## Wiki
 
 * [Getting started](https://github.com/drxaos/beakers/wiki)
-* [Components](https://github.com/drxaos/beakers/wiki/Components.md)
-* [Configuration](https://github.com/drxaos/beakers/wiki/Configuration.md)
-* [Modules](https://github.com/drxaos/beakers/wiki/Modules.md)
-* [Web](https://github.com/drxaos/beakers/wiki/Web.md)
-* [Database](https://github.com/drxaos/beakers/wiki/Database.md)
-* [Testing](https://github.com/drxaos/beakers/wiki/Testing.md)
+* [Components](https://github.com/drxaos/beakers/wiki/Components)
+* [Configuration](https://github.com/drxaos/beakers/wiki/Configuration)
+* [Modules](https://github.com/drxaos/beakers/wiki/Modules)
+* [Web](https://github.com/drxaos/beakers/wiki/Web)
+* [Database](https://github.com/drxaos/beakers/wiki/Database)
+* [Testing](https://github.com/drxaos/beakers/wiki/Testing)

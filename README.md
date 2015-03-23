@@ -5,17 +5,15 @@ Beakers
 
 [<img src="https://travis-ci.org/drxaos/beakers.svg?branch=master" alt="Build Status">](https://travis-ci.org/drxaos/beakers)
 
-[Beakers][Beakers] is a template of web application based on [Spring][Spring] with the [Groovy][Groovy] programming language. It's already integrated with a number of libraries and offers a quick start for programming business logic.
+[Beakers][Beakers] is a template of grails-like web application based on [Spring][Spring] with the [Groovy][Groovy] programming language, [GSP][GSP] and [GORM][GORM]. It's already integrated with a number of libraries and offers a quick start for programming business logic.
 [Beakers]: http://drxaos.github.io/beakers/
 [Spring]: https://spring.io/
 [Groovy]: http://groovy-lang.org/
+[GSP]: http://grails.github.io/grails-doc/latest/guide/theWebLayer.html#gsp
+[GORM]: http://grails.github.io/grails-doc/latest/guide/GORM.html
 
 * Project page: https://github.com/drxaos/beakers
-* Demo application: http://beakers.v-pp.ru/
-* Spring: https://spring.io/
-* Groovy: http://groovy-lang.org/
-* GSP: http://grails.github.io/grails-doc/latest/guide/theWebLayer.html#gsp
-* GORM: http://grails.github.io/grails-doc/latest/guide/GORM.html
+* Demo application: http://beakers.v-pp.ru/ (login as user/user or admin/admin)
 
 ## Wiki
 

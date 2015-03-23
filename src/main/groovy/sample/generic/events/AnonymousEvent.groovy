@@ -3,8 +3,10 @@ package sample.generic.events
 import beakers.system.events.websocket.ClientOutEvent
 
 class AnonymousEvent extends ClientOutEvent {
+
     AnonymousEvent() {
-        securityExpression = "isAnonymous()"
+        super("isAnonymous()")
     }
+
     String payload = "Hello anonymous!"
 }

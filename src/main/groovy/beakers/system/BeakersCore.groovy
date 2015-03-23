@@ -2,8 +2,8 @@ package beakers.system
 
 import beakers.system.config.ApplicationConfig
 import beakers.system.config.BasePackagesConfiguration
-import beakers.system.utils.config.GroovyConfigResource
 import beakers.system.types.BeakersModule
+import beakers.system.utils.config.GroovyConfigResource
 import groovy.util.logging.Log4j
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
 import org.springframework.boot.SpringApplication
@@ -48,7 +48,7 @@ public class BeakersCore extends BeakersModule {
 
     @Override
     List<String> getMessagesPaths() {
-        return ["classpath:messages"]
+        return ["classpath:i18n/messages"]
     }
 
     @Override
@@ -87,7 +87,6 @@ public class BeakersCore extends BeakersModule {
                 params << args[i]
             }
         }
-        app.addListeners()
         app.run(args);
     }
 

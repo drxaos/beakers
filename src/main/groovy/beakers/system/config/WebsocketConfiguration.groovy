@@ -1,7 +1,7 @@
 package beakers.system.config
 
 import beakers.system.BeakersCore
-import beakers.system.utils.websocket.SecuredEndpointExporter
+import beakers.system.utils.websocket.WebsocketEndpointExporter
 import groovy.util.logging.Log4j
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -22,7 +22,7 @@ public class WebsocketConfiguration {
 
     @Bean
     public ServerEndpointExporter endpointExporter() {
-        return new SecuredEndpointExporter();
+        return new WebsocketEndpointExporter();
     }
 
     @Log4j

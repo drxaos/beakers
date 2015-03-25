@@ -1,8 +1,8 @@
 package sample.generic.events
 
-import beakers.system.events.websocket.ClientOutEvent
+import beakers.auth.events.websocket.ClientSecuredOutEvent
 
-class AnonymousEvent extends ClientOutEvent {
+class AnonymousEvent extends ClientSecuredOutEvent {
 
     AnonymousEvent() {
         super("isAnonymous()")

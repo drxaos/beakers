@@ -5,8 +5,7 @@ import javax.websocket.Encoder;
 import java.lang.annotation.*;
 
 /**
- * Annotation for specifying access-control expression which will be evaluated to decide whether a
- * websocket connection is allowed or not.
+ * Annotation for specifying websocket endpoint
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
@@ -20,12 +19,6 @@ public @interface WebsocketEndpoint {
      * to.
      */
     String value();
-
-    /**
-     * @return the Spring-EL expression to be evaluated before allowing connection
-     */
-    String auth();
-
 
     String[] subprotocols() default {};
 

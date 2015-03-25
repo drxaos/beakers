@@ -1,6 +1,7 @@
 package sample.generic
 
 import beakers.admin.BeakersAdminCoreModule
+import beakers.auth.BeakersAuthCoreModule
 import beakers.jobs.BeakersJobsCoreModule
 import beakers.system.BeakersCore
 import beakers.system.types.BeakersModule
@@ -10,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan
 public class GenericSamplesModule extends BeakersModule {
     @Override
     Class<? extends BeakersModule>[] getDependencies() {
-        return [BeakersCore, BeakersJobsCoreModule, BeakersAdminCoreModule]
+        return [BeakersCore, BeakersAuthCoreModule, BeakersJobsCoreModule, BeakersAdminCoreModule]
     }
 
     public static void main(String[] args) throws Exception {

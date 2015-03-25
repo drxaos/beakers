@@ -1,12 +1,9 @@
 package beakers.system.events
 
-import beakers.system.events.websocket.BusEndpoint
-import beakers.system.events.websocket.ClientOutEvent
 import groovy.util.logging.Log4j
 import org.codehaus.groovy.grails.plugins.support.BeanPostProcessorAdapter
 import org.springframework.aop.support.AopUtils
 import org.springframework.beans.BeansException
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.core.annotation.AnnotationUtils
 import org.springframework.stereotype.Component
 import org.springframework.util.ReflectionUtils
@@ -17,8 +14,6 @@ import java.util.concurrent.ConcurrentHashMap
 @Log4j
 @Component
 class EventBus extends BeanPostProcessorAdapter {
-    @Autowired
-    BusEndpoint busEndpoint
 
     private final Set<Class<?>> nonAnnotatedClasses =
             Collections.newSetFromMap(new ConcurrentHashMap<Class<?>, Boolean>(64));
@@ -41,9 +36,6 @@ class EventBus extends BeanPostProcessorAdapter {
                     cl.call(event)
                 }
             }
-        }
-        if (event instanceof ClientOutEvent) {
-            busEndpoint.broadcast(event, event.securityExpression)
         }
     }
 

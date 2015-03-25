@@ -1,7 +1,7 @@
 package beakers.admin.controller
 
 import beakers.system.controller.AbstractMvcController
-import beakers.system.service.auth.UserService
+import beakers.auth.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.stereotype.Controller

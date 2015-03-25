@@ -1,6 +1,6 @@
 package beakers.system.utils.web
 
-import beakers.system.domain.web.Session
+import beakers.system.domain.Session
 import org.apache.commons.collections4.map.LRUMap
 import org.springframework.session.ExpiringSession
 import org.springframework.session.MapSession

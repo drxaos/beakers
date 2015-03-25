@@ -1,9 +1,9 @@
 package beakers.serviceTests
 
-import beakers.system.domain.auth.User
-import beakers.system.errors.domain.auth.EmailAlreadyExists
-import beakers.system.errors.domain.auth.UsernameAlreadyExists
-import beakers.system.service.auth.UserService
+import beakers.auth.domain.User
+import beakers.auth.errors.EmailAlreadyExists
+import beakers.auth.errors.UsernameAlreadyExists
+import beakers.auth.service.UserService
 import junit.framework.Assert
 import org.junit.Test
 import org.springframework.beans.factory.annotation.Autowired

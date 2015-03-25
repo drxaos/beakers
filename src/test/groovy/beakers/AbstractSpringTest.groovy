@@ -1,6 +1,5 @@
 package beakers
 
-import beakers.system.BeakersCore
 import geb.Browser
 import geb.Configuration
 import geb.buildadapter.BuildAdapterFactory
@@ -15,12 +14,13 @@ import org.springframework.boot.test.IntegrationTest
 import org.springframework.boot.test.SpringApplicationConfiguration
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.web.WebAppConfiguration
+import sample.SamplesRunner
 import spock.lang.Specification
 
 import javax.sql.DataSource
 
 @RunWith(SpringRunner.class)
-@SpringApplicationConfiguration(classes = BeakersCore.class)
+@SpringApplicationConfiguration(classes = SamplesRunner.class)
 @WebAppConfiguration
 @IntegrationTest
 @ActiveProfiles("test")

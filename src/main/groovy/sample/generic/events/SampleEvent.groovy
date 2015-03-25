@@ -1,7 +1,7 @@
 package sample.generic.events
 
-import beakers.system.events.websocket.ClientOutEvent
+import beakers.auth.events.websocket.ClientSecuredOutEvent
 
-class SampleEvent extends ClientOutEvent {
+class SampleEvent extends ClientSecuredOutEvent {
     String payload
 }

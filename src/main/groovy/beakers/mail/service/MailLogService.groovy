@@ -1,7 +1,7 @@
 package beakers.mail.service
 
 import beakers.mail.domain.MailLog
-import beakers.system.errors.domain.ServiceException
+import beakers.system.errors.ServiceException
 import beakers.system.aop.OnUpdateDatabase
 import groovy.util.logging.Log4j
 import org.springframework.stereotype.Service

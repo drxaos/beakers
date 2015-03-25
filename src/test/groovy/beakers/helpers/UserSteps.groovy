@@ -1,12 +1,12 @@
 package beakers.helpers
 
-import beakers.system.domain.auth.User
-import beakers.system.service.auth.UserService
+import beakers.auth.domain.User
+import beakers.auth.service.UserService
+import beakers.pages.HomePage
+import beakers.pages.LoginPage
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 import org.springframework.transaction.annotation.Transactional
-import beakers.pages.HomePage
-import beakers.pages.LoginPage
 
 @Component
 class UserSteps extends AbstractSteps {

@@ -1,7 +1,7 @@
 package sample.guestbook.mail
 
 import beakers.system.events.EventListener
-import beakers.system.events.auth.SignUpEvent
+import beakers.auth.events.SignUpEvent
 import beakers.mail.service.MailService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service

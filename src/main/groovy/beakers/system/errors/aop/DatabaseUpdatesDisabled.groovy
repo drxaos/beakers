@@ -1,6 +1,6 @@
 package beakers.system.errors.aop
 
-import beakers.system.errors.domain.ServiceException
+import beakers.system.errors.ServiceException
 
 class DatabaseUpdatesDisabled extends ServiceException {
     DatabaseUpdatesDisabled() {

@@ -1,6 +1,6 @@
 package beakers.system.controller
 
-import beakers.system.errors.domain.ServiceException
+import beakers.system.errors.ServiceException
 import beakers.system.errors.domain.ValidationErrors
 import beakers.system.service.MessageFactoryService
 import groovy.util.logging.Log4j

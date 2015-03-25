@@ -1,7 +1,7 @@
 package sample.guestbook.jobs
 
-import beakers.system.errors.domain.ServiceException
-import beakers.system.service.auth.UserService
+import beakers.system.errors.ServiceException
+import beakers.auth.service.UserService
 import groovy.util.logging.Log4j
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Description

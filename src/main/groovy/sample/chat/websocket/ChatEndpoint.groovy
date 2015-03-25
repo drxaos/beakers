@@ -1,15 +1,17 @@
 package sample.chat.websocket
 
-import beakers.system.domain.auth.User
-import beakers.system.websocket.AbstractEndpoint
+import beakers.auth.domain.User
+import beakers.auth.websocket.AbstractSecuredEndpoint
+import beakers.auth.websocket.WebsocketAuth
 import beakers.system.websocket.WebsocketEndpoint
 import org.springframework.stereotype.Component
 
 import javax.websocket.Session
 
 @Component
-@WebsocketEndpoint(value = "/chat/ws", auth = "isAuthenticated()")
-public class ChatEndpoint extends AbstractEndpoint {
+@WebsocketEndpoint("/chat/ws")
+@WebsocketAuth("isAuthenticated()")
+public class ChatEndpoint extends AbstractSecuredEndpoint {
 
     @Override
     boolean accept(User user, Session session) {

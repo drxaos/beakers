@@ -112,7 +112,7 @@ dependencies {
 }
 
 run {
-    jvmArgs '-XX:MaxPermSize=512m', '-Xmx1024m', '-Xms256m'
+    jvmArgs '-XX:MaxPermSize=650m', '-Xmx1248m', '-Xms256m'
 }
 
 test {
@@ -120,7 +120,7 @@ test {
     def chromedriverFilename = Os.isFamily(Os.FAMILY_WINDOWS) ? "chromedriver.exe" : "chromedriver"
     systemProperty "webdriver.chrome.driver", new File(unzipChromeDriver.outputs.files.singleFile, chromedriverFilename).absolutePath
 
-    jvmArgs '-XX:MaxPermSize=512m', '-Xmx1024m', '-Xms256m'
+    jvmArgs '-XX:MaxPermSize=700m', '-Xmx1024m', '-Xms256m'
 
     testLogging {
         //showStandardStreams = true

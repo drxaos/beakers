@@ -1,6 +1,7 @@
 environments {
     dev {
         // Development properties
+        scheduler.enable = true
 
     }
     prod {
